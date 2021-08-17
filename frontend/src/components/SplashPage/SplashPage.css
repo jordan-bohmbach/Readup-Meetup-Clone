@@ -1,0 +1,39 @@
+.top-section {
+    display: flex;
+    height: 250px;
+}
+
+.top-section-img {
+    display: inline-flex;
+    height: 100%;
+}
+
+.top-section-text {
+    width: 50%;
+}
+
+.search-button {
+    border-radius: 40px;
+    font-size: 14px;
+    line-height: 1;
+    padding: 1rem;
+    background-color: #008294;
+    border-color: #008294;
+    cursor: pointer;
+    color: #fff;
+    fill: #fff;
+    text-decoration: none;
+}
+
+.options-section, .buttons-section, .search-section, .lower-options-section {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 30%;
+}
+
+.lower-option {
+    display: flex;
+    flex-direction: column;
+    
+}
