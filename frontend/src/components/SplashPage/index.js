@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
 import './SplashPage.css'
+import { useDispatch } from 'react-redux'
+import { getEvents } from '../../store/events'
 
 const SplashPage = () => {
+    const dispatch = useDispatch();
+
     const buttonList = ['Boost your career', 'Find your zen', 'Get moving', 'Share language + culture', 'Read with friends', 'Write together', 'Hone your craft']
     const happeningList = ['Starting soon', 'Today', 'Tomorrow', 'This week', 'Online', 'In person', 'Trending near you']
+    
+    const eventList = dispatch(getEvents())
+
     return(
         <div className='splash-page'>
             <div className='top-section'>
@@ -67,7 +74,10 @@ const SplashPage = () => {
 
             <div className='upcoming-events'>
                 <h1>Upcoming online Events</h1>
-
+                {console.log(eventList)}
+                {/* {eventList.map(event=> (
+                    <h2>event.name</h2>
+                ))} */}
             </div>
             <div className='popular-groups'>
                 <h1>Popular groups</h1>
