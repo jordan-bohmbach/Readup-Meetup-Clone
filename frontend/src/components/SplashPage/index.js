@@ -38,7 +38,7 @@ const SplashPage = () => {
                 <div className='left-search'>
                     <input></input>
                     <input></input>
-                    <Link></Link>
+                    <Link to='/'></Link>
                 </div>
                 <div className='right-search'>
                     {happeningList.map(button=>(
@@ -71,7 +71,7 @@ const SplashPage = () => {
             </div>
             <div className='popular-groups'>
                 <h1>Popular groups</h1>
-                
+
             </div>
         </div>
     )
