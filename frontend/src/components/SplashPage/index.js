@@ -1,22 +1,31 @@
 import { Link } from 'react-router-dom'
 import './SplashPage.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getEvents } from '../../store/events'
+import { getGroups } from '../../store/group'
+import { useEffect } from 'react'
+import EventTile from '../EventTile'
+import GroupTile from '../GroupTile'
 
 const SplashPage = () => {
     const dispatch = useDispatch();
+    const eventList = useSelector(state => Object.values(state.events))
+    const groupList = useSelector(state => Object.values(state.groups))
 
     const buttonList = ['Boost your career', 'Find your zen', 'Get moving', 'Share language + culture', 'Read with friends', 'Write together', 'Hone your craft']
     const happeningList = ['Starting soon', 'Today', 'Tomorrow', 'This week', 'Online', 'In person', 'Trending near you']
     
-    const eventList = dispatch(getEvents())
+    useEffect(()=> {
+        dispatch(getEvents())
+        dispatch(getGroups())
+    }, [dispatch])
 
     return(
         <div className='splash-page'>
             <div className='top-section'>
                 <div className='top-section-text'>
                     <h1>Dive in! There are so many book clubs to join on Readup</h1>
-                    <p>Join a group to meet people, make friends, find a bookclub, and explore your interests. Thousands of events are happening every day, both online and in person</p>
+                    <h2>Join a group to meet people, make friends, find a bookclub, and explore your interests. Thousands of events are happening every day, both online and in person</h2>
                 </div>
                 <img src='/images/splash-img.png' alt='top section not found' className='top-section-img'></img>                
             </div>
@@ -73,14 +82,34 @@ const SplashPage = () => {
             </div>
 
             <div className='upcoming-events'>
-                <h1>Upcoming online Events</h1>
-                {console.log(eventList)}
-                {/* {eventList.map(event=> (
-                    <h2>event.name</h2>
-                ))} */}
+                <div className='upcoming-events-header'>
+                    <h1>Upcoming online Events</h1>
+                    <Link to='/events'>{'Explore more events -->'}</Link>
+                </div>
+
+                <div className='event-tiles-section'>
+                    {eventList.map(event => 
+                        <EventTile 
+                            key={event.id} 
+                            event={event}
+                        />
+                    )}
+                </div>
             </div>
             <div className='popular-groups'>
-                <h1>Popular groups</h1>
+                <div className='popular-groups-header'>
+                    <h1>Popular groups</h1>
+                    <Link to='/groups'>{'Explore more groups -->'}</Link>
+                </div>
+
+                <div className='groups-tiles-section'>
+                    {groupList.map(group =>
+                        <GroupTile
+                            key={group.id}
+                            group={group}
+                        />
+                    )}
+                </div>
 
             </div>
         </div>

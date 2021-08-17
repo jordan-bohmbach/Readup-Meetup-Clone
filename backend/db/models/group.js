@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Group = sequelize.define('Group', {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    image: DataTypes.STRING
   }, {});
   Group.associate = function(models) {
     Group.hasMany(models.Event, { foreignKey: "categoryId" })

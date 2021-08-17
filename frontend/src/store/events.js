@@ -3,7 +3,7 @@ const ADD_EVENT = 'events/ADD'
 const REMOVE_EVENT = 'events/REMOVE'
 const EDIT_EVENT = 'events/EDIT'
 
-const load = (events) => ({
+const loadEvents = (events) => ({
     type: LOAD_EVENTS,
     events
 })
@@ -11,8 +11,7 @@ const load = (events) => ({
 export const getEvents = () => async(dispatch) => {
     const response = await fetch(`/api/events`);
     const eventList = await response.json()
-    console.log('in the reducer the eventList is : ', eventList)
-    dispatch(load(eventList));
+    dispatch(loadEvents(eventList));
 }
 
 export default function eventsReducer(state={}, action){

@@ -1,0 +1,12 @@
+.groupTile {
+    border: 1px solid black;
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.groupTile > img {
+    height: 80%;
+    max-width: 300px;
+}

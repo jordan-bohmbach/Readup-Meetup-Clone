@@ -12,6 +12,10 @@
     width: 50%;
 }
 
+.upcoming-events-header, .popular-groups-header {
+    display: inline-flex;
+}
+
 .search-button {
     border-radius: 40px;
     font-size: 14px;
@@ -25,15 +29,33 @@
     text-decoration: none;
 }
 
-.options-section, .buttons-section, .search-section, .lower-options-section {
+.options-section, .buttons-section, .search-section, .lower-options-section, .upcoming-events, .popular-groups {
     display: flex;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    height: 30%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.lower-options-section {
+    height:300px;
 }
 
 .lower-option {
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 33%;
+    height: auto;
+}
+
+.lower-option > img {
+    height: auto;
+}
+
+.upcoming-events, .popular-groups {
     display: flex;
     flex-direction: column;
-    
+}
+
+.event-tiles-section, .group-tiles-section {
+    display: flex;
 }
