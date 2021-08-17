@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Event.associate = function(models) {
     Event.belongsTo(models.Group, {foreignKey: "categoryId"})
+    Event.belongsTo(models.User, {foreignKey: "hostId"})
 
     const rsvpColumnMapping = {
       through: "rsvps",

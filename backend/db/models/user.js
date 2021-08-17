@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     }
     User.belongsToMany(models.Event, rsvpColumnMapping)
 
-    User.belongsTo(models.Event, {foreignKey: "hostId"})
+    User.hasMany(models.Event, {foreignKey: "hostId"})
   };
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
