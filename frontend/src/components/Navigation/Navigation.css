@@ -1,0 +1,24 @@
+ul {
+    height: 25px;
+    display: flex;
+}
+
+li {
+    display: inline-flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+a {
+    display: inline-flex;
+    align-items: center;
+}
+
+img {
+    display: inline-flex;
+    height: 100%;
+}
+
+input {
+    display: inline-flex;
+}

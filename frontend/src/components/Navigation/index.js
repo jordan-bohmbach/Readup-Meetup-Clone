@@ -25,7 +25,12 @@ function Navigation({ isLoaded }) {
     return (
         <ul>
             <li>
-                <NavLink exact to="/">Home</NavLink>
+                <NavLink exact to="/">
+                    <img src='/images/nav-logo.png' alt='img not found'></img>
+                </NavLink>
+                <input className='search-input' defaultValue='search for keywords'></input>
+                <input className='location-input' defaultValue='Chicago, IL'></input>
+                <button className='search-button'>Search</button>
                 {isLoaded && sessionLinks}
             </li>
         </ul>
