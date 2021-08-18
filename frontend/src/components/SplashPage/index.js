@@ -25,22 +25,22 @@ const SplashPage = () => {
             <div className='top-section'>
                 <div className='top-section-text'>
                     <h1>Dive in! There are so many book clubs to join on Readup</h1>
-                    <h2>Join a group to meet people, make friends, find a bookclub, and explore your interests. Thousands of events are happening every day, both online and in person</h2>
+                    <p>Join a group to meet people, make friends, find a bookclub, and explore your interests. Thousands of events are happening every day, both online and in person</p>
                 </div>
                 <img src='/images/splash-img.png' alt='top section not found' className='top-section-img'></img>                
             </div>
             <div className="options-section">
                 <div className='individual-option'>
                     <img src='/images/girl.jpeg' alt='girl not found'></img>
-                    <Link to='/'>Make new friends</Link>
+                    <Link to='/'>{'Make new friends --->'}</Link>
                 </div>
                 <div className='individual-option'>
                     <img src='/images/outdoors.jpeg' alt='outdoors not found'></img>
-                    <Link to='/'>Explore the outdoors</Link>
+                    <Link to='/'>{'Explore the outdoors --->'}</Link>
                 </div>
                 <div className='individual-option'>
                     <img src='/images/online.jpeg' alt='online not found'></img>
-                    <Link to='/'>Connect over tech</Link>
+                    <Link to='/'>{'Connect over tech --->'}</Link>
                 </div>
             </div>
 
@@ -52,14 +52,22 @@ const SplashPage = () => {
 
             <div className='search-section'>
                 <div className='left-search'>
-                    <input></input>
-                    <input></input>
-                    <Link to='/'></Link>
+                    <h2>What do you want to do?</h2>
+                        <div className='left-search-inputs'>
+                            <input defaultValue={`Search for "Science Fiction"`}></input>
+                            <input defaultValue={`Location`}></input>                            
+                        </div>
+                    <Link className='left-search-link' to='/'>
+                        <span className='left-search-button'>Search</span>
+                    </Link>
                 </div>
                 <div className='right-search'>
-                    {happeningList.map(button=>(
-                        <Link className='search-button' to='/' key={button}>{button}</Link>
-                    ))}
+                    <h2>See what's happening</h2>
+                        <div className='right-search-buttons'>
+                            {happeningList.map(button=>(
+                                <Link className='search-button' to='/' key={button}>{button}</Link>
+                            ))}
+                        </div>
                 </div>
             </div>
 

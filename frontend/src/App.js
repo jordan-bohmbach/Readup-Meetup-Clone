@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import SplashPage from "./components/SplashPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import EventListPage from "./components/EventListPage";
+import GroupListPage from "./components/GroupListPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +25,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/events'>
+            <EventListPage />
+          </Route>
+          <Route path='/groups'>
+            <GroupListPage />
           </Route>
         </Switch>
       )}
