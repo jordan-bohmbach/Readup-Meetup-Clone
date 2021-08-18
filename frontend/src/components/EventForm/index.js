@@ -1,9 +1,12 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useReducer, useState } from "react"
+import { Link, useHistory } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import { getEvents } from "../../store/events"
+import { createOneEvent } from "../../store/events"
 
 const EventForm = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
@@ -12,6 +15,7 @@ const EventForm = () => {
     const [category, setCategory] = useState(1)
 
     const eventList = useSelector(state => Object.values(state.events))
+    const hostId = useSelector(state => state.session.user.id)
 
     const venueList = Array.from(new Set(eventList.map(event => event.Venue.name)))
     const categoryList = Array.from(new Set(eventList.map(event => event.Group.type)))
@@ -29,26 +33,34 @@ const EventForm = () => {
         setCategory(categoryList[0])
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         const payload = {
+            hostId,
+            venue,
+            category,
             name,
             date,
             capacity,
             image,
-            venue,
-            category,
         }
 
-        console.log('payload submitted = ', payload)
-        const res = await fetch(`/api/events`,{
-            method: 'post',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        reset()
-        getEvents()
+        let createdEvent = await dispatch(createOneEvent(payload))
+        if(createdEvent) {
+            history.push(`/events/${createdEvent.id}`)
+            reset()
+        }
+
+        // console.log('payload submitted = ', payload)
+        // const res = await fetch(`/api/events`,{
+        //     method: 'post',
+        //     headers: {
+        //         'Content-Type' : 'application/json'
+        //     },
+        //     body: JSON.stringify(payload)
+        // })
+        // reset()
+        // getEvents()
     }
 
     return(

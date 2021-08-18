@@ -22,10 +22,12 @@ const EventListPage = ({eventList}) => {
             <div className='event-page-upper-section'>
                 <div className='event-list'>
                     {eventList.map(event =>
-                        <EventTile
-                            key={event.id}
-                            event={event}
-                        />
+                        <Link to={`/events/${event.id}`}>
+                            <EventTile
+                                key={event.id}
+                                event={event}
+                            />
+                        </Link>
                     )}
                 </div>
                 <div className="event-side-panel">
