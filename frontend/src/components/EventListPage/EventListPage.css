@@ -1,0 +1,28 @@
+.event-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-event-link {
+    text-decoration: none;
+}
+
+.create-event-button {
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1;
+    padding: 1rem;
+    padding-left: 33%;
+    padding-right: 33%;
+    background-color: rgba(246,88,88,1);
+    border-color: rgba(246,88,88,1);
+    cursor: pointer;
+    color: #fff;
+    fill: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5%;
+    min-width: 200px;
+    text-align: center;
+}

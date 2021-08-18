@@ -1,12 +1,21 @@
-.groupTile {
+.group-tile {
     border: 1px solid black;
     display: inline-flex;
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+    width: 20%;
+    height: 300px;
+    border-radius: 15px;
 }
 
-.groupTile > img {
+.group-tile > img {
     height: 80%;
     max-width: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.group-tile > span {
+    padding: 4%;
 }
