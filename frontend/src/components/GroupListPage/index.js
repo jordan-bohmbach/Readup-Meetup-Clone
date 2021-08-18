@@ -1,6 +1,16 @@
-const GroupListPage = () => {
+import GroupTile from "../GroupTile"
+
+const GroupListPage = ({groupList}) => {
     return (
-        <div>Hello from the group list page</div>
+        <div className='group-page'>
+        <h1>Groups</h1>
+        {groupList.map(group =>
+                <GroupTile
+                    key={group.id}
+                    group={group}
+                />
+            )}
+        </div>
     )
 }
 

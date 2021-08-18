@@ -1,24 +1,15 @@
 import { Link } from 'react-router-dom'
 import './SplashPage.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getEvents } from '../../store/events'
-import { getGroups } from '../../store/group'
+
 import { useEffect } from 'react'
 import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
 
-const SplashPage = () => {
-    const dispatch = useDispatch();
-    const eventList = useSelector(state => Object.values(state.events))
-    const groupList = useSelector(state => Object.values(state.groups))
+const SplashPage = ({eventList, groupList}) => {
 
     const buttonList = ['Boost your career', 'Find your zen', 'Get moving', 'Share language + culture', 'Read with friends', 'Write together', 'Hone your craft']
     const happeningList = ['Starting soon', 'Today', 'Tomorrow', 'This week', 'Online', 'In person', 'Trending near you']
-    
-    useEffect(()=> {
-        dispatch(getEvents())
-        dispatch(getGroups())
-    }, [dispatch])
 
     return(
         <div className='splash-page'>
@@ -72,27 +63,31 @@ const SplashPage = () => {
             </div>
 
             <div className='lower-options-section'>
-                <div className='lower-option'>
-                    <img src='/images/join-a-group.png' alt='group not found'></img>
-                    <Link to='/'>Join a group</Link>
-                    <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
-                </div>
-                <div className='lower-option'>
-                    <img src='/images/find-an-event.png' alt='event not found'></img>
-                    <Link to='/'>Find an Event</Link>
-                    <p>Events are happening on just about any topic you can think of, from online gaming and photography to yoga and hiking</p>
-                </div>
-                <div className='lower-option'>
-                    <img src='/images/start-a-group.png' alt='start not found'></img>
-                    <Link to='/'>Start a group</Link>
-                    <p>You don't have to be an expert to gather people together and explore shared interests</p>
+                <h2>How Readup Works</h2>
+                <p>Meet new people who share your reading interests through online and in-person events. It’s free to create an account.</p>
+                <div className='picture-options'>
+                    <div className='lower-option'>
+                        <img src='/images/join-a-group.png' alt='group not found'></img>
+                        <Link to='/'>Join a group</Link>
+                        <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
+                    </div>
+                    <div className='lower-option'>
+                        <img src='/images/find-an-event.png' alt='event not found'></img>
+                        <Link to='/'>Find an Event</Link>
+                        <p>Events are happening on just about any topic you can think of, from online gaming and photography to yoga and hiking</p>
+                    </div>
+                    <div className='lower-option'>
+                        <img src='/images/start-a-group.png' alt='start not found'></img>
+                        <Link to='/'>Start a group</Link>
+                        <p>You don't have to be an expert to gather people together and explore shared interests</p>
+                    </div>
                 </div>
             </div>
 
             <div className='upcoming-events'>
                 <div className='upcoming-events-header'>
                     <h1>Upcoming online Events</h1>
-                    <Link to='/events'>{'Explore more events -->'}</Link>
+                    <Link to='/events' className='explore-link'>{'Explore more events'}</Link>
                 </div>
 
                 <div className='event-tiles-section'>
@@ -107,7 +102,7 @@ const SplashPage = () => {
             <div className='popular-groups'>
                 <div className='popular-groups-header'>
                     <h1>Popular groups</h1>
-                    <Link to='/groups'>{'Explore more groups -->'}</Link>
+                    <Link to='/groups' className='explore-link'>{'Explore more groups'}</Link>
                 </div>
 
                 <div className='groups-tiles-section'>

@@ -1,12 +1,23 @@
-.eventTile {
+.event-tile {
     border: 1px solid black;
     display: inline-flex;
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
+    width: 20%;
+    height: 300px;
+    border-radius: 15px;
 }
 
-.eventTile > img {
-    height: 80%;
+.event-tile > img {
+    height: 70%;
     max-width: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.event-details-section {
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
 }
