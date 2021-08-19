@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import EventForm from "../EventForm"
+import CreateEventForm from "../CreateEventForm"
 
 const EventDetails = ({event, visible}) => {
     const [createEvent, setCreateEvent] = useState(false)
@@ -12,7 +12,7 @@ const EventDetails = ({event, visible}) => {
     if (!visible) return null
 
     if(createEvent) return(
-        <EventForm />
+        <CreateEventForm />
     )
 
     if (!event) return (

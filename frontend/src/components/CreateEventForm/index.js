@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getEvents } from "../../store/events"
 import { createOneEvent } from "../../store/events"
 
-const EventForm = () => {
+const CreateEventForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [name, setName] = useState('')
@@ -141,4 +141,4 @@ const EventForm = () => {
     )
 }
 
-export default EventForm
+export default CreateEventForm

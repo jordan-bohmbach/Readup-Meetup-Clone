@@ -38,6 +38,9 @@ function App() {
           <Route path='/events'>
             <EventListPage eventList={eventList}/>
           </Route>
+          {/* <Route path='/events/:eventId'>
+            <EventListPage eventTile={eventList} />
+          </Route> */}
           <Route path='/groups'>
             <GroupListPage groupList={groupList}/>
           </Route>
