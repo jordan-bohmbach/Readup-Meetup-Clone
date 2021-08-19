@@ -11,13 +11,19 @@
 }
 
 .event-list {
+    width: 70%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .event-list > a {
     width: 200px;
     padding-left: 2%;
     display: inline-flex
+}
+
+.selected-event-tile {
+    background-color: #008294;
 }
 
 .event-side-panel {

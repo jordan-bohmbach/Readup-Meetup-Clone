@@ -1,6 +1,6 @@
 import { csrfFetch } from "./csrf"
 
-const LOAD_GROUPS = 'gropus/LOAD'
+const LOAD_GROUPS = 'groups/LOAD'
 const ADD_GROUP = 'groups/ADD'
 const REMOVE_GROUP = 'groups/REMOVE'
 const EDIT_GROUP = 'groups/EDIT'

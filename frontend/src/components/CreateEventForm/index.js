@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOneEvent } from "../../store/events"
 
-const CreateEventForm = () => {
+const CreateEventForm = ({setCreateEvent}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [name, setName] = useState('')
@@ -20,7 +20,7 @@ const CreateEventForm = () => {
     const categoryList = Array.from(new Set(eventList.map(event => event.Group.type)))
 
     const cancelCreation = () => {
-
+        setCreateEvent(false)
     }
 
     const reset = () => {

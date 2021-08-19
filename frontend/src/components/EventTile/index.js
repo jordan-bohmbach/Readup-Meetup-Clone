@@ -1,6 +1,6 @@
 import './EventTile.css'
 
-const EventTile = ({event, setSelectedEvent}) => {
+const EventTile = ({event, setSelectedEvent, selectedEvent}) => {
     const eventDay = event.date.slice(0, 9)
     const eventTime = event.date.slice(10, event.date.length)
 

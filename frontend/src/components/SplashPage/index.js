@@ -88,7 +88,7 @@ const SplashPage = ({eventList, groupList}) => {
                 </div>
 
                 <div className='event-tiles-section'>
-                    {eventList.map(event => 
+                    {eventList.slice(0,3).map(event => 
                         <Link to={`/events/${event.id}`} key={event.id}>
                             <EventTile 
                                 key={event.id} 
