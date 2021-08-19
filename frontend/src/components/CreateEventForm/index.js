@@ -1,10 +1,9 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getEvents } from "../../store/events"
 import { createOneEvent } from "../../store/events"
 
-const EventForm = () => {
+const CreateEventForm = ({setCreateEvent}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [name, setName] = useState('')
@@ -21,7 +20,7 @@ const EventForm = () => {
     const categoryList = Array.from(new Set(eventList.map(event => event.Group.type)))
 
     const cancelCreation = () => {
-
+        setCreateEvent(false)
     }
 
     const reset = () => {
@@ -141,4 +140,4 @@ const EventForm = () => {
     )
 }
 
-export default EventForm
+export default CreateEventForm

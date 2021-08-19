@@ -1,9 +1,12 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import EventForm from "../EventForm"
+import { useSelector } from "react-redux"
+import { Link, useParams } from "react-router-dom"
+import CreateEventForm from "../CreateEventForm"
 
-const EventDetails = ({event, visible}) => {
+const EventDetails = ({visible}) => {
     const [createEvent, setCreateEvent] = useState(false)
+    const {eventId} = useParams()
+    const currentEvent = useSelector(state=> state.events[eventId])
 
     const handleClick = () => {
         setCreateEvent(true)
@@ -12,10 +15,10 @@ const EventDetails = ({event, visible}) => {
     if (!visible) return null
 
     if(createEvent) return(
-        <EventForm />
+        <CreateEventForm setCreateEvent={setCreateEvent}/>
     )
 
-    if (!event) return (
+    if (!currentEvent) return (
         <div className="event-details">
             <p className="event-info">Events</p>
             <p>Welcome to our event catalog. Please enjoy exploring.</p>
@@ -29,8 +32,8 @@ const EventDetails = ({event, visible}) => {
 
     return (
         <div className="event-details">
-            <p className="event-info">{event.name}</p>
-            <p>{event.description}</p>
+            <p className="event-info">{currentEvent.name}</p>
+            <p>{currentEvent.description}</p>
             {/* <p className="event-price">{event.price}</p> */}
             <p>Details</p>
             {/* <ul>

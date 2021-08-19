@@ -186,6 +186,22 @@ h2 {
     display: inline-flex;
 }
 
+.event-tiles-section > a {
+    display: inline-flex;
+    width: 400px;
+}
+
+.event-tile {
+    display: inline-flex;
+    object-fit: contain;
+    width: 300px;
+    height: 300px;
+}
+
+.event-tile > img {
+    object-fit: contain;
+}
+
 * {
     font-family: Arial, Helvetica, sans-serif;
 }

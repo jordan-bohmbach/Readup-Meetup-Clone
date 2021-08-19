@@ -71,10 +71,20 @@ export const updateEvent = event => async dispatch => {
     }
 }
 
+export const deleteEvent = eventId => async dispatch => {
+    const response = await fetch(`/api/events/${eventId}`, {
+        method: 'delete'
+    })
+
+    if(response.ok) {
+        const event = await response.json()
+        dispatch(remove(event.id))
+    }
+}
+
 export default function eventsReducer(state={}, action){
     switch (action.type){
         case LOAD_EVENTS: {
-            let newState = { ...state }
             const newEvents = {}
             action.events.forEach(event => {
                 newEvents[event.id] = event;
