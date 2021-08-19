@@ -3,7 +3,6 @@ import EventTile from "../EventTile"
 import './EventListPage.css'
 import {React, useState, useEffect} from "react"
 import EventDetails from "../EventDetails"
-import { Route } from "react-router"
 
 const EventListPage = ({eventList}) => {
     const [sideOpen, setSideOpen] = useState(true)
@@ -17,9 +16,9 @@ const EventListPage = ({eventList}) => {
         if(!sideOpen) setSelectedEvent('')
     }, [sideOpen])
 
-    const handleEvent = (event) => {
-        setSelectedEvent(event)
-    }
+    // const handleEvent = (event) => {
+    //     setSelectedEvent(event)
+    // }
 
     return(
         <div className='event-page'>
@@ -27,7 +26,7 @@ const EventListPage = ({eventList}) => {
             <div className='event-page-upper-section'>
                 <div className='event-list'>
                     {eventList.map(event =>
-                        <Link to={`/events/${event.id}`}>
+                        <Link to={`/events/${event.id}`} key={event.id}>
                             <EventTile
 
                                 setSelectedEvent={setSelectedEvent}

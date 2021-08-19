@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom'
 import './SplashPage.css'
-import { useDispatch, useSelector } from 'react-redux'
-
-import { useEffect } from 'react'
 import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
 
@@ -92,7 +89,7 @@ const SplashPage = ({eventList, groupList}) => {
 
                 <div className='event-tiles-section'>
                     {eventList.map(event => 
-                        <Link to={`/events/${event.id}`}>
+                        <Link to={`/events/${event.id}`} key={event.id}>
                             <EventTile 
                                 key={event.id} 
                                 event={event}
@@ -109,7 +106,7 @@ const SplashPage = ({eventList, groupList}) => {
 
                 <div className='groups-tiles-section'>
                     {groupList.map(group =>
-                        <Link to={`/groups/${group.id}`}>
+                        <Link to={`/groups/${group.id}`} key={group.id}>
                             <GroupTile
                                 key={group.id}
                                 group={group}

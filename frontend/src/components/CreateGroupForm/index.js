@@ -1,7 +1,6 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { getGroups } from "../../store/group"
+import { useDispatch } from "react-redux"
 import { createOneGroup } from "../../store/group"
 
 const CreateGroupForm = () => {
@@ -9,9 +8,6 @@ const CreateGroupForm = () => {
     const history = useHistory()
     const [type, setType] = useState('')
     const [image, setImage] = useState('')
-
-    const groupList = useSelector(state => Object.values(state.groups))
-    const hostId = useSelector(state => state.session.user.id)
 
     const cancelCreation = () => {
 

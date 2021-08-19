@@ -3,7 +3,6 @@ import GroupTile from "../GroupTile"
 import './GroupListPage.css'
 import { React, useState, useEffect } from "react"
 import GroupDetails from "../GroupDetails"
-import { Route } from "react-router"
 
 const GroupListPage = ({ groupList }) => {
     const [sideOpen, setSideOpen] = useState(true)
@@ -17,9 +16,9 @@ const GroupListPage = ({ groupList }) => {
         if (!sideOpen) setSelectedGroup('')
     }, [sideOpen])
 
-    const handleGroup = (group) => {
-        setSelectedGroup(group)
-    }
+    // const handleGroup = (group) => {
+    //     setSelectedGroup(group)
+    // }
 
     return (
         <div className='group-page'>

@@ -79,7 +79,6 @@ export const deleteGroup = groupId => async dispatch => {
 }
 
 export default function groupsReducer(state = {}, action) {
-    let newState = { ...state }
     switch (action.type) {
         case LOAD_GROUPS: {
             const newGroups = {}

@@ -10,6 +10,16 @@
     justify-content: space-between;
 }
 
+.event-list {
+    display: flex;
+}
+
+.event-list > a {
+    width: 200px;
+    padding-left: 2%;
+    display: inline-flex
+}
+
 .event-side-panel {
     border-left: solid black 0px;
     background-color: #008294;

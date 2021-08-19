@@ -1,7 +1,6 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { getEvents } from "../../store/events"
 import { createOneEvent } from "../../store/events"
 
 const CreateEventForm = () => {
