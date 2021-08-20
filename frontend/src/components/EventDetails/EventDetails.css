@@ -1,0 +1,16 @@
+.event-details {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-details > img {
+    height: 300px;
+    border-radius: 15px;
+    border-style: 1px solid black;
+}
+
+.back-to-events {
+    align-self:flex-start
+}
