@@ -7,13 +7,24 @@
     width: 400px;
     height: 200px;
     border-radius: 15px;
+    padding-bottom: 5%;
+    margin-bottom: 3%;
+}
+
+.event-tile > a {
+    display: inline-flex;
+    object-fit: contain;
+    width: 300px;
+    height: 200px;
 }
 
 .event-tile > a > img {
+    display: inline-block;
     height: 70%;
     max-width: 300px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    object-fit: contain;
 }
 
 .event-details-section {
