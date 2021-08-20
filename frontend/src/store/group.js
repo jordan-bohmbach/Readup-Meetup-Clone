@@ -80,7 +80,7 @@ export const deleteGroup = groupId => async dispatch => {
 
 export default function groupsReducer(state = {}, action) {
     switch (action.type) {
-        case LOAD_GROUPS: {
+        case LOAD_GROUPS: 
             const newGroups = {}
             action.groups.forEach(group => {
                 newGroups[group.id] = group;
@@ -89,8 +89,8 @@ export default function groupsReducer(state = {}, action) {
                 ...state,
                 ...newGroups
             }
-        }
-        case ADD_GROUP: {
+        
+        case ADD_GROUP: 
             if (!state[action.groups.id]) {
                 const newState = {
                     ...state,
@@ -109,19 +109,19 @@ export default function groupsReducer(state = {}, action) {
                     ...action.group,
                 }
             }
-        }
-        case REMOVE_GROUP: {
+        
+        case REMOVE_GROUP: 
             let newState = {...state}
             delete newState[action.groupId]
             return newState
-        }
+        
         case EDIT_GROUP:
             return{
                 ...state,
                 [action.group.id] : action.group
             }
-        default:{
+        default:
             return state;
-        }
+        
     }
 }

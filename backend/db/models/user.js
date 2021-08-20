@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsToMany(models.Group, userGroupsColumnMapping)
 
     const rsvpColumnMapping = {
-      through: "rsvps",
+      through: models.Rsvp,
       foreignKey: "userId",
       otherKey: "eventId"
     }

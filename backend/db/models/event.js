@@ -14,11 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     Event.belongsTo(models.User, {foreignKey: "hostId"})
 
     const rsvpColumnMapping = {
-      through: "rsvps",
+      through: models.Rsvp,
       foreignKey: "eventId",
-      otherKey: "userId"
+      otherKey: "userId",
     }
     Event.belongsToMany(models.User, rsvpColumnMapping)
+    Event.hasMany(models.Rsvp, {foreignKey: "eventId", onDelete: 'CASCADE', hooks: true})
 
     Event.belongsTo(models.Venue, { foreignKey: "venueId" })
   };

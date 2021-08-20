@@ -7,8 +7,11 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import EventListPage from "./components/EventListPage";
 import GroupListPage from "./components/GroupListPage";
+import EventDetails from "./components/EventDetails";
 import { getEvents } from "./store/events";
 import { getGroups } from "./store/group";
+import CreateEventForm from "./components/CreateEventForm";
+import EditEventForm from "./components/EditEventForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,12 +38,18 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/events'>
+          <Route exact path='/events'>
             <EventListPage eventList={eventList}/>
           </Route>
-          {/* <Route path='/events/:eventId'>
+          <Route exact path='/events/new'>
+            <CreateEventForm />
+          </Route>
+          <Route exact path='/events/:eventId/edit'>
+            <EditEventForm />
+          </Route>
+          <Route exact path='/events/:eventId'>
             <EventDetails eventTile={eventList} />
-          </Route> */}
+          </Route>
           <Route path='/groups'>
             <GroupListPage groupList={groupList}/>
           </Route>
