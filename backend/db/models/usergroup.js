@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     groupId: DataTypes.INTEGER
   }, {});
   userGroup.associate = function(models) {
-    // associations can be defined here
+    userGroup.hasMany(models.Group, { foreignKey: "groupId" })
   };
   return userGroup;
 };

@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   User.associate = function (models) {
     const userGroupsColumnMapping = {
-      through: "userGroups",
+      through: models.userGroup,
       foreignKey: "userId",
       otherKey: "groupId"
     }
@@ -62,6 +62,7 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsToMany(models.Event, rsvpColumnMapping)
 
     User.hasMany(models.Event, {foreignKey: "hostId"})
+    User.hasMany(models.Group, {foreignKey: "ownerId"})
   };
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
