@@ -7,11 +7,17 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import EventListPage from "./components/EventListPage";
 import GroupListPage from "./components/GroupListPage";
-import EventDetails from "./components/EventDetails";
 import { getEvents } from "./store/events";
 import { getGroups } from "./store/group";
+
 import CreateEventForm from "./components/CreateEventForm";
+import CreateGroupForm from "./components/CreateGroupForm";
+
 import EditEventForm from "./components/EditEventForm";
+import EditGroupForm from "./components/EditGroupForm";
+
+import EventDetails from "./components/EventDetails";
+import GroupDetails from "./components/GroupDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,10 +54,19 @@ function App() {
             <EditEventForm />
           </Route>
           <Route exact path='/events/:eventId'>
-            <EventDetails eventTile={eventList} />
+            <EventDetails />
           </Route>
-          <Route path='/groups'>
-            <GroupListPage groupList={groupList}/>
+          <Route exact path='/groups'>
+            <GroupListPage groupList={groupList} />
+          </Route>
+          <Route exact path='/groups/new'>
+            <CreateGroupForm />
+          </Route>
+          <Route exact path='/groups/:groupId/edit'>
+            <EditGroupForm />
+          </Route>
+          <Route exact path='/groups/:groupId'>
+            <GroupDetails />
           </Route>
         </Switch>
       )}

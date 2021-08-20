@@ -1,45 +1,29 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { Link, useParams } from "react-router-dom"
 import CreateGroupForm from "../CreateGroupForm"
+import './GroupDetails.css'
 
-const GroupDetails = ({ group, visible }) => {
-    const [createGroup, setCreateGroup] = useState(false)
+const GroupDetails = () => {
 
-    const handleClick = () => {
-        setCreateGroup(true)
-    }
+    let { groupId } = useParams()
+    groupId = parseInt(groupId)
+    console.log(typeof groupId)
+    const currentGroup = useSelector(state => state.groups[groupId])
+    console.log(currentGroup)
 
-    if (!visible) return null
-
-    if (createGroup) return (
-        <CreateGroupForm />
-    )
-
-    if (!group) return (
-        <div className="group-details">
-            <p className="group-info">Groups</p>
-            <p>Welcome to our group catalog. Please enjoy exploring.</p>
-            <p>Please select an group to view its details.</p>
-            <p>Or create a new group below</p>
-            <Link to='/groups/new' className='create-group-link' onClick={handleClick}>
-                <span className='create-group-button'>Create a new Group</span>
-            </Link>
-        </div>
-    )
 
     return (
-        <div className="group-details">
-            <p className="group-info">{group.name}</p>
-            <p>{group.description}</p>
-            {/* <p className="group-price">{group.price}</p> */}
-            <p>Details</p>
-            {/* <ul>
-                {group.details.map((item, index) => <li className="product-details-list-item" key={index}>
-                    {item.label}<br />
-                    <span className="product-info">{item.value}</span>
-                </li>)}
-            </ul> */}
-        </div>
+        <>
+            <div className="group-details">
+                <Link to='/groups/' className='back-to-groups'>Back to groups Page</Link>
+                <p className="group-info">{currentGroup?.name}</p>
+                <img src={`${currentGroup?.image}`} alt={currentGroup?.name}></img>
+                <p>Type: {currentGroup?.type}</p>
+
+
+            </div>
+        </>
     )
 }
 

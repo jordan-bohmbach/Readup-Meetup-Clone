@@ -4,17 +4,13 @@ import { Link, useParams } from "react-router-dom"
 import CreateEventForm from "../CreateEventForm"
 import './EventDetails.css'
 
-const EventDetails = ({selectedEvent}) => {
-    const [createEvent, setCreateEvent] = useState(false)
+const EventDetails = () => {
+
     let {eventId} = useParams()
     eventId = parseInt(eventId)
     console.log(typeof eventId)
     const currentEvent = useSelector(state=> state.events[eventId])
     console.log(currentEvent)
-
-    const handleClick = () => {
-        setCreateEvent(true)
-    }
 
     return (
         <>

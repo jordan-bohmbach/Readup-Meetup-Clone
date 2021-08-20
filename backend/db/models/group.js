@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.STRING
   }, {});
   Group.associate = function(models) {
-    Group.hasMany(models.Event, { foreignKey: "categoryId" })
+    Group.hasMany(models.Event, { foreignKey: "categoryId", onDelete: 'CASCADE', hooks: true })
+    Group.belongsTo(models.User, { foreignKey: "ownerId" })
 
     const userGroupsColumnMapping = {
       through: "userGroups",

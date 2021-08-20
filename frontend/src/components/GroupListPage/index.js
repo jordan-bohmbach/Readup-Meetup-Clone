@@ -36,16 +36,9 @@ const GroupListPage = ({ groupList }) => {
                         </Link>
                     )}
                 </div>
-                <div className="group-side-panel">
-                    <div className="group-side-panel-toggle-wrapper">
-                        <div className="group-side-panel-toggle"
-                            onClick={() => setSideOpen(!sideOpen)}>
-                            {sideOpen ? '>' : '<'}
-                        </div>
-                    </div>
-                    <GroupDetails visible={sideOpen} group={selectedGroup} />
-                </div>
+
             </div>
+            <Link to={'/groups/new'}>Create New Group</Link>
         </div>
     )
 }

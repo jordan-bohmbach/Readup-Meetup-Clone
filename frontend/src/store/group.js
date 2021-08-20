@@ -67,7 +67,7 @@ export const updateGroup = group => async dispatch => {
 }
 
 export const deleteGroup = groupId => async dispatch => {
-    const response = await fetch(`/api/groups/${groupId}`, {
+    const response = await csrfFetch(`/api/groups/${groupId}`, {
         method: 'delete'
     })
 
@@ -91,15 +91,12 @@ export default function groupsReducer(state = {}, action) {
             }
         
         case ADD_GROUP: 
-            if (!state[action.groups.id]) {
+            if (!state[action.group.id]) {
                 const newState = {
                     ...state,
                     [action.group.id]: action.group
                 };
-                const groupList = newState.list.map(id => newState[id])
-                groupList.push(action.group)
-                // newState.list = sortList(groupList)
-                newState.list = groupList
+
                 return newState
             }
             return {

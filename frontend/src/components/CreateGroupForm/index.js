@@ -19,7 +19,7 @@ const CreateGroupForm = () => {
     }
 
     const handleSubmit = async (e) => {
-        e.prgroupDefault()
+        e.preventDefault()
         const payload = {
             type,
             image,
@@ -31,16 +31,6 @@ const CreateGroupForm = () => {
             reset()
         }
 
-        // console.log('payload submitted = ', payload)
-        // const res = await fetch(`/api/groups`,{
-        //     method: 'post',
-        //     headers: {
-        //         'Content-Type' : 'application/json'
-        //     },
-        //     body: JSON.stringify(payload)
-        // })
-        // reset()
-        // getgroups()
     }
 
     return (
