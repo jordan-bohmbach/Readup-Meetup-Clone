@@ -15,7 +15,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        hostId: 1,
+        hostId: 2,
         venueId: 1,
         categoryId: 1,
         name: 'Arthur C Clarke',
@@ -48,7 +48,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        hostId: 1,
+        hostId: 2,
         venueId: 1,
         categoryId: 1,
         name: 'Arthur C Clarke',
@@ -59,7 +59,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        hostId: 1,
+        hostId: 2,
         venueId: 1,
         categoryId: 1,
         name: 'H. G. Wells',
