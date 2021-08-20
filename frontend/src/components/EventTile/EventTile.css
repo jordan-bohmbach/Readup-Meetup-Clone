@@ -9,7 +9,7 @@
     border-radius: 15px;
 }
 
-.event-tile > img {
+.event-tile > a > img {
     height: 70%;
     max-width: 300px;
     border-top-left-radius: 15px;

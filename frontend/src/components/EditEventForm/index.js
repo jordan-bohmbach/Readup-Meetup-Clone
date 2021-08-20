@@ -1,24 +1,38 @@
-import { useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { createOneEvent } from "../../store/events"
+import { updateEvent } from "../../store/events"
 
-const CreateEventForm = ({setCreateEvent}) => {
+const EditEventForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    
+    let {eventId} = useParams()
+    console.log('eventId = ', eventId)
+    console.log('type of eventId = ', typeof eventId)
+    eventId=parseInt(eventId)
     const eventList = useSelector(state => Object.values(state.events))
+    const myEvent = eventList.find(event => event.id === eventId)
+    console.log('myEvent = ', myEvent)
     const hostId = useSelector(state => state.session.user.id)
     
     const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
     const categoryList = Array.from(new Set(eventList.map(event => event.Group)))
 
-    const [name, setName] = useState('')
-    const [date, setDate] = useState(new Date())
-    const [capacity, setCapacity] = useState(0)
-    const [image, setImage] = useState('')
-    const [venue, setVenue] = useState(venueList[0])
-    const [category, setCategory] = useState(categoryList[0])
+    const [name, setName] = useState(myEvent?.name)
+    const [date, setDate] = useState(myEvent?.date)
+    const [capacity, setCapacity] = useState(myEvent?.capacity)
+    const [image, setImage] = useState(myEvent?.image)
+    const [venue, setVenue] = useState(myEvent?.venue)
+    const [category, setCategory] = useState(myEvent?.category)
+
+    useEffect(()=> {
+        setName(myEvent?.name)
+        setDate(myEvent?.date)
+        setCapacity(myEvent?.capacity)
+        setImage(myEvent?.image)
+        setVenue(myEvent?.venue)
+        setCategory(myEvent?.category)
+    }, [myEvent])
 
     const reset = () => {
         setName('')
@@ -33,22 +47,22 @@ const CreateEventForm = ({setCreateEvent}) => {
         e.preventDefault()
         console.log("venue = ", venue)
         const payload = {
+            id: eventId,
             hostId,
-            venue: venue.id,
-            category: category.id,
+            venue: venue?.id,
+            category: category?.id,
             name,
             date,
             capacity,
             image,
         }
 
-        let createdEvent = await dispatch(createOneEvent(payload))
-        if(createdEvent) {
+        let updatedEvent = await dispatch(updateEvent(payload))
+        if(updatedEvent) {
             console.log('here')
             history.push('/events/')
             reset()
         }
-
     }
 
     return(
@@ -57,7 +71,7 @@ const CreateEventForm = ({setCreateEvent}) => {
                 className='event-form'
                 onSubmit={handleSubmit}
             >
-                <h2>Create a new Event</h2>
+                <h2>Edit your Event</h2>
                 <label>
                     Name
                     <input
@@ -95,7 +109,7 @@ const CreateEventForm = ({setCreateEvent}) => {
                     />
                 </label>
                 <select
-                    value={venue.id}
+                    value={venue?.id}
                     onChange={e => setVenue(e.target.value)}
                 >
                     {venueList?.map((venue, i) => (
@@ -121,7 +135,7 @@ const CreateEventForm = ({setCreateEvent}) => {
                 <button
                     type="submit"
                 >
-                    Create Event
+                    Save Changes
                 </button>
             </form>
             <Link to='/events/' className='cancel-event-button'>Cancel</Link>
@@ -129,4 +143,4 @@ const CreateEventForm = ({setCreateEvent}) => {
     )
 }
 
-export default CreateEventForm
+export default EditEventForm
