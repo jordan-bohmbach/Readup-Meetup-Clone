@@ -45,14 +45,16 @@ export const createOneEvent = (payload) => async dispatch => {
     console.log('hostId is currently ', hostId)
     console.log('hostId type is ', typeof hostId)
 
-    const data = {hostId, venueId: venue, categoryId: category, name, date, capacity, image}
+    // const data = {hostId, venueId: venue, categoryId: category, name, date, capacity, image}
     const response = await csrfFetch(`/api/events`, {
         method: 'POST',
-        body: JSON.stringify(data)
+        body: JSON.stringify({ hostId, venueId: venue, categoryId: category, name, date, capacity, image })
     });
 
-    const newEvent = await response.json();
+    let newEvent;
     if(response.ok) {
+        newEvent = await response.json();
+        console.log(newEvent)
         dispatch(addOneEvent(newEvent))
     }
     return newEvent;
@@ -72,19 +74,19 @@ export const updateEvent = event => async dispatch => {
 }
 
 export const deleteEvent = eventId => async dispatch => {
-    const response = await fetch(`/api/events/${eventId}`, {
+    const response = await csrfFetch(`/api/events/${eventId}`, {
         method: 'delete'
     })
 
     if(response.ok) {
-        const event = await response.json()
-        dispatch(remove(event.id))
+        // const event = await response.json()
+        dispatch(remove(eventId))
     }
 }
 
 export default function eventsReducer(state={}, action){
     switch (action.type){
-        case LOAD_EVENTS: {
+        case LOAD_EVENTS: 
             const newEvents = {}
             action.events.forEach(event => {
                 newEvents[event.id] = event;
@@ -93,17 +95,14 @@ export default function eventsReducer(state={}, action){
                 ...state,
                 ...newEvents
             }
-        }
-        case ADD_EVENT: {
-            if(!state[action.events.id]) {
+        
+        case ADD_EVENT: 
+            if(!state[action.event.id]) {
                 const newState = {
                     ...state,
                     [action.event.id]: action.event
                 };
-                const eventList = newState.list.map(id => newState[id])
-                eventList.push(action.event)
-                // newState.list = sortList(eventList)
-                newState.list = eventList
+
                 return newState
             }
             return {
@@ -113,20 +112,20 @@ export default function eventsReducer(state={}, action){
                     ...action.event,
                 }
             }
-        }
-        case REMOVE_EVENT: {
+        
+        case REMOVE_EVENT: 
             let newState = { ...state }
             delete newState[action.eventId];
             return newState;
-        }
-        case EDIT_EVENT: {
+        
+        case EDIT_EVENT: 
             return{
                 ...state,
                 [action.event.id] : action.event
             }
-        }
-        default: {
+        
+        default: 
             return state;
-        }
+        
     }
 }

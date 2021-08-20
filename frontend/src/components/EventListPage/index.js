@@ -53,9 +53,11 @@ const EventListPage = ({eventList}) => {
                             {sideOpen ? '>' : '<'}
                         </div>
                     </div>
-                    <Route path='/events/:eventId'>
-                        <EventDetails visible={sideOpen} event={selectedEvent} />
-                    </Route>
+                    {console.log('sideOpen = ', sideOpen)}
+
+
+                        <EventDetails visible={sideOpen} selectedEvent={selectedEvent} />
+
                 </div>
             </div>
         </div>

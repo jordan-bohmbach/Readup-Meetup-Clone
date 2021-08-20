@@ -30,7 +30,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
         image,
     })
     console.log('newEvent = ', newEvent)
-    return newEvent;
+    res.json(newEvent)
 }))
 
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
@@ -44,12 +44,13 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     event.image = req.body.image
 
     await event.save()
-    res.venueId()
+    res.json(event)
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const event = await Event.findByPk(req.params.id)
     await event.destroy();
+    res.json({})
 }))
 
 module.exports = router

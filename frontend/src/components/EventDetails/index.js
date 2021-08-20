@@ -3,23 +3,26 @@ import { useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
 import CreateEventForm from "../CreateEventForm"
 
-const EventDetails = ({visible}) => {
+const EventDetails = ({visible, selectedEvent}) => {
     const [createEvent, setCreateEvent] = useState(false)
-    const {eventId} = useParams()
+    const eventId = selectedEvent.id
     const currentEvent = useSelector(state=> state.events[eventId])
 
     const handleClick = () => {
         setCreateEvent(true)
     }
 
-    if (!visible) return null
+    if (!visible) {
+        console.log('returning null')
+        return null
+    }
 
     if(createEvent) return(
         <CreateEventForm setCreateEvent={setCreateEvent}/>
     )
-
     if (!currentEvent) return (
         <div className="event-details">
+            {console.log('currentEvent = ', currentEvent)}
             <p className="event-info">Events</p>
             <p>Welcome to our event catalog. Please enjoy exploring.</p>
             <p>Please select an event to view its details.</p>
