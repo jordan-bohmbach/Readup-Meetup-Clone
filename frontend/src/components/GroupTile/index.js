@@ -15,14 +15,14 @@ const GroupTile = ({ group, selectedGroup }) => {
 
     return (
         <div className='group-tile'>
-            <Link to={`/groups/${group?.id}`} key={group?.id} className={group?.id === selectedGroup?.id ? 'selected-group-tile' : ''}>
+            <Link to={`/groups/${group?.id}`} key={group?.id} className='group-details-link'>
                 <img src={group.image} alt='group tile not found'></img>
                 <div className='group-details-section'>
                     <span>{group.type}</span>
                 </div>
             </Link>
-            {(currentUser && currentUser.id === group.ownerId ? <Link to={`/groups/${group.id}/edit`}>Edit Group</Link> : '')}
-            {(currentUser && currentUser.id === group.ownerId ? <button onClick={handleDeleteClick}>Delete Group</button> : '')}
+            {(currentUser && currentUser.id === group.ownerId ? <Link to={`/groups/${group.id}/edit`} className='edit-group-link'>Edit Group</Link> : '')}
+            {(currentUser && currentUser.id === group.ownerId ? <button onClick={handleDeleteClick} className='delete-group-link'>Delete Group</button> : '')}
         </div>
     )
 }

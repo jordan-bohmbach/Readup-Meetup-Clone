@@ -4,14 +4,12 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
-    width: 400px;
-    height: 200px;
     border-radius: 15px;
     padding-bottom: 5%;
     margin-bottom: 3%;
 }
 
-.group-tile > a {
+.group-details-link {
     display: inline-flex;
     object-fit: contain;
     width: 300px;
@@ -20,7 +18,7 @@
 
 .group-tile > a > img {
     display: inline-block;
-    height: 70%;
+    height: 100%;
     max-width: 300px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
