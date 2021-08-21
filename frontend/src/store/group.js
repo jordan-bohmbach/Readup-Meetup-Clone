@@ -33,21 +33,25 @@ export const getGroups = () => async (dispatch) => {
 
 export const createOneGroup = (payload) => async dispatch => {
     const {
+        ownerId,
         type,
         image
     } = payload
 
+    console.log('ownerId is currently, ', ownerId)
     console.log('type is currently ', type)
     console.log('image is currently ', image)
 
-    const data = { type, image }
+    // const data = { ownerId, type, image }
     const response = await csrfFetch(`/api/groups`, {
         method: 'POST',
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ownerId, type, image })
     });
 
-    const newGroup = await response.json();
+    let newGroup;
     if (response.ok) {
+        newGroup = await response.json()
+        console.log(newGroup)
         dispatch(addOneGroup(newGroup))
     }
     return newGroup;
@@ -73,8 +77,8 @@ export const deleteGroup = groupId => async dispatch => {
 
 
     if (response.ok) {
-        const group = await response.json()
-        dispatch(remove(group.id))
+        // const group = await response.json()
+        dispatch(remove(groupId))
     }
 }
 

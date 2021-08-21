@@ -13,47 +13,27 @@ const EditGroupForm = () => {
     const groupList = useSelector(state => Object.values(state.groups))
     const myGroup = groupList.find(group => group.id === groupId)
     console.log('myGroup = ', myGroup)
-    const hostId = useSelector(state => state.session.user.id)
+    const ownerId = useSelector(state => state.session.user.id)
 
-    const venueList = Array.from(new Set(groupList.map(group => group.Venue)))
-    const categoryList = Array.from(new Set(groupList.map(group => group.Group)))
-
-    const [name, setName] = useState(myGroup?.name)
-    const [date, setDate] = useState(myGroup?.date)
-    const [capacity, setCapacity] = useState(myGroup?.capacity)
+    const [type, setType] = useState(myGroup?.name)
     const [image, setImage] = useState(myGroup?.image)
-    const [venue, setVenue] = useState(myGroup?.venue)
-    const [category, setCategory] = useState(myGroup?.category)
 
     useEffect(() => {
-        setName(myGroup?.name)
-        setDate(myGroup?.date)
-        setCapacity(myGroup?.capacity)
+        setType(myGroup?.type)
         setImage(myGroup?.image)
-        setVenue(myGroup?.venue)
-        setCategory(myGroup?.category)
+
     }, [myGroup])
 
     const reset = () => {
-        setName('')
-        setDate(new Date())
-        setCapacity(0)
+        setType('')
         setImage('')
-        setVenue(venueList[0])
-        setCategory(categoryList[0])
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("venue = ", venue)
         const payload = {
             id: groupId,
-            hostId,
-            venue: venue?.id,
-            category: category?.id,
-            name,
-            date,
-            capacity,
+            ownerId,
             image,
         }
 
@@ -73,30 +53,12 @@ const EditGroupForm = () => {
             >
                 <h2>Edit your Group</h2>
                 <label>
-                    Name
+                    Type
                     <input
                         type="text"
-                        name="name"
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Date
-                    <input
-                        type='date'
-                        name='date'
-                        value={date}
-                        onChange={e => setDate(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Capacity
-                    <input
-                        type="number"
-                        name="capacity"
-                        value={capacity}
-                        onChange={e => setCapacity(e.target.value)}
+                        name="type"
+                        value={type}
+                        onChange={e => setType(e.target.value)}
                     />
                 </label>
                 <label>
@@ -108,30 +70,7 @@ const EditGroupForm = () => {
                         onChange={e => setImage(e.target.value)}
                     />
                 </label>
-                <select
-                    value={venue?.id}
-                    onChange={e => setVenue(e.target.value)}
-                >
-                    {venueList?.map((venue, i) => (
-                        <option
-                            key={`${venue?.id}-${venue?.name}-${i}`}
-                        >
-                            {venue?.name}
-                        </option>
-                    ))}
-                </select>
-                <select
-                    value={category}
-                    onChange={e => setCategory(e.target.value)}
-                >
-                    {categoryList?.map((category, i) => (
-                        <option
-                            key={`${category?.id}-${i}`}
-                        >
-                            {category?.type}
-                        </option>
-                    ))}
-                </select>
+
                 <button
                     type="submit"
                 >

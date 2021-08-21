@@ -1,20 +1,11 @@
-import { Link, Route } from "react-router-dom"
+import { Link, } from "react-router-dom"
 import EventTile from "../EventTile"
 import './EventListPage.css'
-import {React, useState, useEffect} from "react"
-import EventDetails from "../EventDetails"
+import {React, useState} from "react"
 
 const EventListPage = ({eventList}) => {
-    const [sideOpen, setSideOpen] = useState(true)
+
     const [selectedEvent, setSelectedEvent] = useState('')
-
-    useEffect(() => {
-        if(selectedEvent) setSideOpen(true)
-    }, [selectedEvent])
-
-    useEffect(()=> {
-        if(!sideOpen) setSelectedEvent('')
-    }, [sideOpen])
 
     return(
         <div className='event-page'>
@@ -25,7 +16,6 @@ const EventListPage = ({eventList}) => {
 
 
                                 <EventTile
-                                    setSelectedEvent={setSelectedEvent}
                                     selectedEvent={selectedEvent}
                                     key={event.id}
                                     event={event}

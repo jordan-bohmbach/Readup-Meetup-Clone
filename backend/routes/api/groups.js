@@ -11,14 +11,16 @@ router.post('/', asyncHandler(async (req, res, next) => {
     const {
         type,
         image,
+        ownerId,
     } = req.body;
 
     const newGroup = await Group.create({
         type,
         image,
+        ownerId,
     })
     console.log('newGroup = ', newGroup)
-    return newGroup;
+    res.json(newGroup);
 }))
 
 router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
@@ -27,12 +29,13 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     group.image = req.body.image
 
     await group.save()
-    res.venueId()
+    res.json(group)
 }))
 
 router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const group = await Group.findByPk(req.params.id)
     await group.destroy();
+    res.json({})
 }))
 
 module.exports = router;
