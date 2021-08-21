@@ -95,7 +95,7 @@ const CreateEventForm = ({setCreateEvent}) => {
                     />
                 </label>
                 <select
-                    value={venue.id}
+                    value={venue?.id}
                     onChange={e => setVenue(e.target.value)}
                 >
                     {venueList?.map((venue, i) => (

@@ -2,8 +2,10 @@ import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { createOneGroup } from "../../store/group"
+import { useSelector } from "react-redux"
 
 const CreateGroupForm = () => {
+    const ownerId = useSelector(state => state.session.user.id)
     const dispatch = useDispatch()
     const history = useHistory()
     const [type, setType] = useState('')
@@ -21,13 +23,18 @@ const CreateGroupForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = {
+            ownerId,
             type,
             image,
         }
 
+        console.log('about to dispat')
         let createdGroup = await dispatch(createOneGroup(payload))
+        console.log('dispatched')
+        
         if (createdGroup) {
-            history.push(`/groups/${createdGroup.id}`)
+            console.log('created')
+            history.push(`/groups/`)
             reset()
         }
 

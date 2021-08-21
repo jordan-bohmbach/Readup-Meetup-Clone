@@ -89,12 +89,10 @@ const SplashPage = ({eventList, groupList}) => {
 
                 <div className='event-tiles-section'>
                     {eventList.slice(0,3).map(event => 
-                        // <Link to={`/events/${event.id}`} key={event.id}>
                             <EventTile 
                                 key={event.id} 
                                 event={event}
                             />
-                        // </Link>
                     )}
                 </div>
             </div>
@@ -106,12 +104,10 @@ const SplashPage = ({eventList, groupList}) => {
 
                 <div className='groups-tiles-section'>
                     {groupList.slice(0,3).map(group =>
-                        <Link to={`/groups/${group.id}`} key={group.id}>
                             <GroupTile
                                 key={group.id}
                                 group={group}
                             />
-                        </Link>
                     )}
                 </div>
 

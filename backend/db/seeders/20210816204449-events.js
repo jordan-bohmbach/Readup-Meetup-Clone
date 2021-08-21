@@ -39,7 +39,7 @@ module.exports = {
       {
         hostId: 1,
         venueId: 1,
-        categoryId: 1,
+        categoryId: 2,
         name: 'Steven King Reading',
         date: new Date(),
         capacity: 15,
@@ -50,7 +50,7 @@ module.exports = {
       {
         hostId: 2,
         venueId: 1,
-        categoryId: 1,
+        categoryId: 2,
         name: 'Arthur C Clarke',
         date: new Date(),
         capacity: 15,
@@ -61,7 +61,7 @@ module.exports = {
       {
         hostId: 2,
         venueId: 1,
-        categoryId: 1,
+        categoryId: 2,
         name: 'H. G. Wells',
         date: new Date(),
         capacity: 15,
