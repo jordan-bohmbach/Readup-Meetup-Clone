@@ -4,14 +4,12 @@
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
-    width: 400px;
-    height: 200px;
     border-radius: 15px;
     padding-bottom: 5%;
     margin-bottom: 3%;
 }
 
-.event-tile > a {
+.event-details-link {
     display: inline-flex;
     object-fit: contain;
     width: 300px;
