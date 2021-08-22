@@ -37,7 +37,7 @@
     text-decoration: none;
 }
 
-.create-group-button, .cancel-group-button {
+.cancel-group-button {
     border-radius: 10px;
     font-size: 14px;
     line-height: 1;
@@ -54,4 +54,14 @@
     margin-top: 5%;
     min-width: 200px;
     text-align: center;
+}
+
+.create-group-button {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }

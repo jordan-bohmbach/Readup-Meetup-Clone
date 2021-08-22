@@ -150,6 +150,13 @@ h2 {
     padding-right: 2%;
 }
 
+.lower-option > a {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
 .lower-option > img {
     height: 50%;
     width: 50%;

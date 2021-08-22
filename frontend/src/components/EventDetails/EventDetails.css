@@ -12,5 +12,12 @@
 }
 
 .back-to-events {
-    align-self:flex-start
+    align-self:flex-start;
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }

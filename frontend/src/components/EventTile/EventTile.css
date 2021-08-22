@@ -1,19 +1,31 @@
 .event-tile {
-    border: 1px solid black;
     display: inline-flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 15px;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
     margin-bottom: 3%;
+    border-width: 5px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
 .event-details-link {
     display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
     object-fit: contain;
     width: 300px;
     height: 200px;
+}
+
+.event-tile > span {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .event-tile > a > img {
@@ -29,4 +41,14 @@
     display: flex;
     flex-direction: column;
     padding: 4%;
+}
+
+.edit-event-link, .delete-event-link {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }

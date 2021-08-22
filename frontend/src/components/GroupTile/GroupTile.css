@@ -1,19 +1,33 @@
 .group-tile {
-    border: 1px solid black;
     display: inline-flex;
     flex-direction: column;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 15px;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
     margin-bottom: 3%;
+    border-width: 5px;
+    border-style: outset;
+    height: 250px;
+    border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
 .group-details-link {
     display: inline-flex;
+    flex-direction: column;
     object-fit: contain;
     width: 300px;
     height: 200px;
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.group-tile > span {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .group-tile > a > img {
@@ -27,6 +41,16 @@
 
 .group-details-section {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     padding: 4%;
+}
+
+.edit-group-link, .delete-group-link {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }

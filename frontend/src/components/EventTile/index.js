@@ -23,13 +23,12 @@ const EventTile = ({event, selectedEvent}) => {
             <Link to={`/events/${event?.id}`} key={event?.id} className='event-details-link'>
                 <img src={event.image} alt='event tile not found'></img>
                 <div className='event-details-section'>
-                    <span>{eventDay}</span>
-                    <span>{eventTime}</span>
-                    <span>{event.name}</span>
-                    <span>{event.capacity}</span>
+                    <span>Date: {eventDay}</span>
+                    <span>Name: {event.name}</span>
+                    <span>Capacity: {event.capacity}</span>
                 </div>
             </Link>
-            {(currentUser && currentUser.id === event.hostId ? <Link to={`/events/${event.id}/edit`} className='edit-event-link'>Edit Event</Link> : '')}
+            {(currentUser && currentUser.id === event.hostId ? <span><Link to={`/events/${event.id}/edit`} className='edit-event-link'>Edit Event</Link></span>: '')}
             {(currentUser && currentUser.id === event.hostId ? <button onClick={handleDeleteClick} className='delete-event-link'>Delete Event</button> : '')}
         </div>
     )
