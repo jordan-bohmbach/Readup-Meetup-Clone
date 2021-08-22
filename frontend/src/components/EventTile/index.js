@@ -3,13 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteEvent } from '../../store/events'
 import { Link } from 'react-router-dom'
 
-const EventTile = ({event, selectedEvent}) => {
+const EventTile = ({event}) => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
-
-
     const eventDay = event.date.slice(0, 9)
-    const eventTime = event.date.slice(10, event.date.length)
 
 
     const handleDeleteClick = async() => {

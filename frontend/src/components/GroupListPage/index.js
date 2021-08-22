@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom"
 import GroupTile from "../GroupTile"
 import './GroupListPage.css'
-import { React, useState } from "react"
+import { React } from "react"
 import { useSelector } from "react-redux"
 
 const GroupListPage = ({ groupList }) => {
     const currentUser = useSelector(state => state.session.user)
-    const [selectedGroup, setSelectedGroup] = useState('')
-
 
     return (
         <div className='group-page'>
@@ -15,14 +13,10 @@ const GroupListPage = ({ groupList }) => {
             <div className='group-page-upper-section'>
                 <div className='group-list'>
                     {groupList.map(group =>
-
                             <GroupTile
-
-                                setSelectedgroup={setSelectedGroup}
                                 key={group.id}
                                 group={group}
                             />
-
                     )}
                 </div>
 

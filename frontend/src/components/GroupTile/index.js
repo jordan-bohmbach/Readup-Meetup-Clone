@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteGroup } from '../../store/group'
 import { Link } from 'react-router-dom'
 
-const GroupTile = ({ group, selectedGroup }) => {
+const GroupTile = ({ group }) => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
 
