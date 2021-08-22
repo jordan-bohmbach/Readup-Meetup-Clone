@@ -38,6 +38,20 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        ownerId: 1,
+        type: 'History',
+        image: 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1506&q=80',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        ownerId: 1,
+        type: 'Horror',
+        image: 'https://images-na.ssl-images-amazon.com/images/I/41d0ImkcP0L._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
       ], {});
   },
 

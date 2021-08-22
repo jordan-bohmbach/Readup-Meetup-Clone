@@ -1,12 +1,11 @@
 import { Link, } from "react-router-dom"
 import EventTile from "../EventTile"
 import './EventListPage.css'
-import {React, useState} from "react"
+import {React} from "react"
 import { useSelector } from "react-redux"
 
 const EventListPage = ({eventList}) => {
     const currentUser = useSelector(state => state.session.user)
-    const [selectedEvent, setSelectedEvent] = useState('')
 
     return(
         <div className='event-page'>
@@ -14,15 +13,10 @@ const EventListPage = ({eventList}) => {
             <div className='event-page-upper-section'>
                 <div className='event-list'>
                     {eventList.map(event =>
-
-
                                 <EventTile
-                                    selectedEvent={selectedEvent}
                                     key={event.id}
                                     event={event}
                                 />
-
-
                     )}
                 </div>
             </div>

@@ -1,7 +1,5 @@
-import { useState } from "react"
 import { useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
-import CreateGroupForm from "../CreateGroupForm"
 import './GroupDetails.css'
 
 const GroupDetails = () => {
