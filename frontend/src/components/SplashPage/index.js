@@ -20,21 +20,21 @@ const SplashPage = ({eventList, groupList}) => {
             <div className="options-section">
                 <div className='individual-option'>
                     <img src='/images/girl.jpeg' alt='girl not found'></img>
-                    <Link to='/'>{'Make new friends --->'}</Link>
+                    <Link to='/groups'>{'Make new friends --->'}</Link>
                 </div>
                 <div className='individual-option'>
                     <img src='/images/outdoors.jpeg' alt='outdoors not found'></img>
-                    <Link to='/'>{'Explore the outdoors --->'}</Link>
+                    <Link to='/groups'>{'Explore the outdoors --->'}</Link>
                 </div>
                 <div className='individual-option'>
                     <img src='/images/online.jpeg' alt='online not found'></img>
-                    <Link to='/'>{'Connect over tech --->'}</Link>
+                    <Link to='/groups'>{'Connect over tech --->'}</Link>
                 </div>
             </div>
 
             <div className='buttons-section'>
                 {buttonList.map(button => (
-                    <Link className='search-button' to='/' key={button}>{button}</Link>
+                    <Link className='search-button' to='/groups' key={button}>{button}</Link>
                 ))}
             </div>
 
@@ -45,7 +45,7 @@ const SplashPage = ({eventList, groupList}) => {
                             <input defaultValue={`Search for "Science Fiction"`}></input>
                             <input defaultValue={`Location`}></input>                            
                         </div>
-                    <Link className='left-search-link' to='/'>
+                    <Link className='left-search-link' to='/events'>
                         <span className='left-search-button'>Search</span>
                     </Link>
                 </div>
@@ -53,7 +53,7 @@ const SplashPage = ({eventList, groupList}) => {
                     <h2>See what's happening</h2>
                         <div className='right-search-buttons'>
                             {happeningList.map(button=>(
-                                <Link className='search-button' to='/' key={button}>{button}</Link>
+                                <Link className='search-button' to='/events' key={button}>{button}</Link>
                             ))}
                         </div>
                 </div>
@@ -65,17 +65,17 @@ const SplashPage = ({eventList, groupList}) => {
                 <div className='picture-options'>
                     <div className='lower-option'>
                         <img src='/images/join-a-group.png' alt='group not found'></img>
-                        <Link to='/'>Join a group</Link>
+                        <Link to='/groups'>Join a group</Link>
                         <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
                     </div>
                     <div className='lower-option'>
                         <img src='/images/find-an-event.png' alt='event not found'></img>
-                        <Link to='/'>Find an Event</Link>
+                        <Link to='/events'>Find an Event</Link>
                         <p>Events are happening on just about any topic you can think of, from online gaming and photography to yoga and hiking</p>
                     </div>
                     <div className='lower-option'>
                         <img src='/images/start-a-group.png' alt='start not found'></img>
-                        <Link to='/'>Start a group</Link>
+                        <Link to='/groups/new'>Start a group</Link>
                         <p>You don't have to be an expert to gather people together and explore shared interests</p>
                     </div>
                 </div>

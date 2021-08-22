@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 import GroupTile from "../GroupTile"
 import './GroupListPage.css'
 import { React, useState } from "react"
+import { useSelector } from "react-redux"
 
 const GroupListPage = ({ groupList }) => {
-
+    const currentUser = useSelector(state => state.session.user)
     const [selectedGroup, setSelectedGroup] = useState('')
 
 
@@ -26,7 +27,7 @@ const GroupListPage = ({ groupList }) => {
                 </div>
 
             </div>
-            <Link to={'/groups/new'}>Create New Group</Link>
+            {(currentUser && currentUser.id) ? <Link to={'/groups/new'} className='create-group-button'>Create New Group</Link> : ''}
         </div>
     )
 }

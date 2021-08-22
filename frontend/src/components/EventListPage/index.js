@@ -2,9 +2,10 @@ import { Link, } from "react-router-dom"
 import EventTile from "../EventTile"
 import './EventListPage.css'
 import {React, useState} from "react"
+import { useSelector } from "react-redux"
 
 const EventListPage = ({eventList}) => {
-
+    const currentUser = useSelector(state => state.session.user)
     const [selectedEvent, setSelectedEvent] = useState('')
 
     return(
@@ -25,7 +26,7 @@ const EventListPage = ({eventList}) => {
                     )}
                 </div>
             </div>
-                        <Link to={'/events/new'}>Create New Event</Link>
+            {(currentUser && currentUser.id) ? <Link to={'/events/new'} className='create-event-button'>Create New Event</Link> : ''}
         </div>
     )
 }

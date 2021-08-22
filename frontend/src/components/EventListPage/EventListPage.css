@@ -7,11 +7,9 @@
 .event-page-upper-section {
     display: flex;
     width: 100%;
-    justify-content: space-between;
 }
 
 .event-list {
-    width: 70%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -53,7 +51,7 @@
     text-decoration: none;
 }
 
-.create-event-button, .cancel-event-button {
+.cancel-event-button {
     border-radius: 10px;
     font-size: 14px;
     line-height: 1;
@@ -70,4 +68,14 @@
     margin-top: 5%;
     min-width: 200px;
     text-align: center;
+}
+
+.create-event-button {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
