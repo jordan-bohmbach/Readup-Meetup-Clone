@@ -29,7 +29,7 @@ const CreateEventForm = () => {
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
     const [venueId, setVenueId] = useState(venueIdList[0])
-    const [categoryId, setCategoryId] = useState(categoryList[0])
+    const [categoryId, setCategoryId] = useState(1)
 
     const reset = () => {
         setName('')
@@ -45,10 +45,11 @@ const CreateEventForm = () => {
 
         let catId = categoryList.find(category => category.type === categoryId)
 
+
         const payload = {
             hostId,
             venueId : 1,
-            categoryId: catId.id,
+            categoryId: (catId?.id ? catId?.id : 1),
             name,
             date,
             capacity,
