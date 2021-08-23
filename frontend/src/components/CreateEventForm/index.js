@@ -10,14 +10,23 @@ const CreateEventForm = ({setCreateEvent}) => {
     const eventList = useSelector(state => Object.values(state.events))
     const hostId = useSelector(state => state.session.user.id)
     
-    const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
-    const categoryList = Array.from(new Set(eventList.map(event => event.Group)))
+    const venueList = []
+    const venueSet = new Set()
+    eventList.forEach(event => {
+        if(!venueSet.has(event?.Venue?.name)){
+            venueList.push(event?.Venue)
+            venueSet.add(event?.Venue?.name)
+        }
+    })
+    const venueNameList = venueList.map(venue => venue.name)
+
+    const categoryList = useSelector(state => Object.values(state.groups))
 
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
-    const [venue, setVenue] = useState(venueList[0])
+    const [venueName, setVenueName] = useState(venueList[0]?.name)
     const [category, setCategory] = useState(categoryList[0])
 
     const reset = () => {
@@ -25,17 +34,18 @@ const CreateEventForm = ({setCreateEvent}) => {
         setDate(new Date())
         setCapacity(0)
         setImage('')
-        setVenue(venueList[0])
+        setVenueName(venueList[0].name)
         setCategory(categoryList[0])
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("venue = ", venue)
+        let myvenue = venueList.find(venue => venue.name === venueName)
+        let mycategory = categoryList.find(category => category.name === category)
         const payload = {
             hostId,
-            venue: venue.id,
-            category: category.id,
+            venueId: 1,
+            categoryId: 1,
             name,
             date,
             capacity,
@@ -44,7 +54,7 @@ const CreateEventForm = ({setCreateEvent}) => {
 
         let createdEvent = await dispatch(createOneEvent(payload))
         if(createdEvent) {
-            console.log('here')
+            // console.log('here')
             history.push('/events/')
             reset()
         }
@@ -95,14 +105,14 @@ const CreateEventForm = ({setCreateEvent}) => {
                     />
                 </label>
                 <select
-                    value={venue?.id}
-                    onChange={e => setVenue(e.target.value)}
+                    value={venueName}
+                    onChange={e => setVenueName(e.target.value)}
                 >
-                    {venueList?.map((venue, i) => (
+                    {venueNameList.map(venueName => (
                         <option
-                            key={`${venue?.id}-${venue?.name}-${i}`}
+                            key={venueName}
                         >
-                            {venue?.name}
+                            {venueName}
                         </option>
                     ))}
                 </select>

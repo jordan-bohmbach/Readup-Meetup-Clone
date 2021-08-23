@@ -7,12 +7,12 @@ const EditGroupForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     let { groupId } = useParams()
-    console.log('groupId = ', groupId)
-    console.log('type of groupId = ', typeof groupId)
+    // console.log('groupId = ', groupId)
+    // console.log('type of groupId = ', typeof groupId)
     groupId = parseInt(groupId)
     const groupList = useSelector(state => Object.values(state.groups))
     const myGroup = groupList.find(group => group.id === groupId)
-    console.log('myGroup = ', myGroup)
+    // console.log('myGroup = ', myGroup)
     const ownerId = useSelector(state => state.session.user.id)
 
     const [type, setType] = useState(myGroup?.name)
@@ -34,12 +34,13 @@ const EditGroupForm = () => {
         const payload = {
             id: groupId,
             ownerId,
+            type,
             image,
         }
 
         let updatedGroup = await dispatch(updateGroup(payload))
         if (updatedGroup) {
-            console.log('here')
+            // console.log('here')
             history.push('/groups/')
             reset()
         }

@@ -9,6 +9,7 @@ import EventListPage from "./components/EventListPage";
 import GroupListPage from "./components/GroupListPage";
 import { getEvents } from "./store/events";
 import { getGroups } from "./store/group";
+import Footer from "./components/Footer";
 
 import CreateEventForm from "./components/CreateEventForm";
 import CreateGroupForm from "./components/CreateGroupForm";
@@ -70,6 +71,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer></Footer>
     </>
   );
 }

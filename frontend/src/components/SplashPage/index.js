@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './SplashPage.css'
 import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
+import Footer from '../Footer'
 
 const SplashPage = ({eventList, groupList}) => {
 
@@ -112,6 +113,7 @@ const SplashPage = ({eventList, groupList}) => {
                 </div>
 
             </div>
+
         </div>
     )
 }
