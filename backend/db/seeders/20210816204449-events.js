@@ -149,17 +149,6 @@ module.exports = {
         {
           hostId: 2,
           venueId: 1,
-          categoryId: 1,
-          name: 'Not so fictional fiction',
-          date: new Date(),
-          capacity: 15,
-          image: 'https://images-na.ssl-images-amazon.com/images/I/41rAVWQETAL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          hostId: 2,
-          venueId: 1,
           categoryId: 2,
           name: 'Learning about fusion technology',
           date: new Date(),

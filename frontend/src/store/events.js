@@ -37,8 +37,8 @@ export const createOneEvent = (payload) => async dispatch => {
         date,
         capacity,
         image,
-        venue,
-        category,
+        venueId,
+        categoryId,
         hostId
     } = payload
 
@@ -48,7 +48,7 @@ export const createOneEvent = (payload) => async dispatch => {
     // const data = {hostId, venueId: venue, categoryId: category, name, date, capacity, image}
     const response = await csrfFetch(`/api/events`, {
         method: 'POST',
-        body: JSON.stringify({ hostId, venueId: venue, categoryId: category, name, date, capacity, image })
+        body: JSON.stringify({ hostId, venueId, categoryId, name, date, capacity, image })
     });
 
     let newEvent;
