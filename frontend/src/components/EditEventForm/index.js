@@ -15,23 +15,23 @@ const EditEventForm = () => {
     // console.log('myEvent = ', myEvent)
     const hostId = useSelector(state => state.session.user.id)
     
-    const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
+    // const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
     const categoryList = Array.from(new Set(eventList.map(event => event.Group)))
 
     const [name, setName] = useState(myEvent?.name)
     const [date, setDate] = useState(myEvent?.date)
     const [capacity, setCapacity] = useState(myEvent?.capacity)
     const [image, setImage] = useState(myEvent?.image)
-    const [venue, setVenue] = useState(myEvent?.venue)
-    const [category, setCategory] = useState(myEvent?.category)
+    // const [venue, setVenue] = useState(myEvent?.venue)
+    const [categoryId, setCategoryId] = useState(1)
 
     useEffect(()=> {
         setName(myEvent?.name)
         setDate(myEvent?.date)
         setCapacity(myEvent?.capacity)
         setImage(myEvent?.image)
-        setVenue(myEvent?.venue)
-        setCategory(myEvent?.category)
+        // setVenue(myEvent?.venue)
+        setCategoryId(myEvent?.category)
     }, [myEvent])
 
     const reset = () => {
@@ -39,18 +39,20 @@ const EditEventForm = () => {
         setDate(new Date())
         setCapacity(0)
         setImage('')
-        setVenue(venueList[0])
-        setCategory(categoryList[0])
+        // setVenue(venueList[0])
+        setCategoryId(categoryList[0])
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log("venue = ", venue)
+        
+        let catId = categoryList.find(category => category?.type === categoryId)
+
         const payload = {
             id: eventId,
             hostId,
-            venue: venue?.id,
-            category: category?.id,
+            venueId: 1,
+            categoryId: (catId?.id ? catId?.id : 1),
             name,
             date,
             capacity,
@@ -108,7 +110,7 @@ const EditEventForm = () => {
                         onChange={e => setImage(e.target.value)}
                     />
                 </label>
-                <select
+                {/* <select
                     value={venue?.id}
                     onChange={e => setVenue(e.target.value)}
                 >
@@ -119,14 +121,14 @@ const EditEventForm = () => {
                             {venue?.name}
                         </option>
                     ))}
-                </select>
+                </select> */}
                 <select
-                    value={category}
-                    onChange={e => setCategory(e.target.value)}
+                    value={categoryId}
+                    onChange={e => setCategoryId(e.target.value)}
                 >
                     {categoryList?.map((category,i) => (
                         <option
-                            key={`${category?.id}-${i}`}
+                            key={categoryId}
                         >
                             {category?.type}
                         </option>

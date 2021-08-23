@@ -8,27 +8,27 @@ const CreateEventForm = () => {
     const history = useHistory()
     
     const categoryList = useSelector(state => Object.values(state.groups))
-    const eventList = useSelector(state => Object.values(state.events))
+    // const eventList = useSelector(state => Object.values(state.events))
     const hostId = useSelector(state => state.session.user.id)
     
-    const venueNameList = []
-    const venueIdList = []
+    // const venueNameList = []
+    // const venueIdList = []
 
-    const venueNameSet = new Set()
-    const venueIdSet = new Set()
-    eventList.forEach(event => {
-        if(!venueNameSet.has(event?.Venue?.name)){
-            venueNameList.push(event?.Venue)
-            venueIdList.push(event?.id)
-            venueNameSet.add(event?.Venue?.name)
-        }
-    })
+    // const venueNameSet = new Set()
+    // const venueIdSet = new Set()
+    // eventList.forEach(event => {
+    //     if(!venueNameSet.has(event?.Venue?.name)){
+    //         venueNameList.push(event?.Venue)
+    //         venueIdList.push(event?.id)
+    //         venueNameSet.add(event?.Venue?.name)
+    //     }
+    // })
 
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
-    const [venueId, setVenueId] = useState(venueIdList[0])
+    // const [venueId, setVenueId] = useState(venueIdList[0])
     const [categoryId, setCategoryId] = useState(1)
 
     const reset = () => {
@@ -36,7 +36,7 @@ const CreateEventForm = () => {
         setDate(new Date())
         setCapacity(0)
         setImage('')
-        setVenueId(venueIdList[0])
+        // setVenueId(venueIdList[0])
         setCategoryId(categoryList[0])
     }
 
