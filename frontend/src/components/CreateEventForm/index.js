@@ -34,8 +34,8 @@ const CreateEventForm = ({setCreateEvent}) => {
         console.log("venue = ", venue)
         const payload = {
             hostId,
-            venue: venue.id,
-            category: category.id,
+            venue: 1,
+            category: 1,
             name,
             date,
             capacity,
