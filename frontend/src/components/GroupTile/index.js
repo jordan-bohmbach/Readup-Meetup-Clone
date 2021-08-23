@@ -8,7 +8,7 @@ const GroupTile = ({ group }) => {
     const currentUser = useSelector(state => state.session.user)
 
     const handleDeleteClick = async () => {
-        console.log('dispatching deletegroup here with group.id=', group.id)
+        // console.log('dispatching deletegroup here with group.id=', group.id)
         await dispatch(deleteGroup(group.id))
     }
 

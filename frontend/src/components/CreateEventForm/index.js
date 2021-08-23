@@ -10,8 +10,17 @@ const CreateEventForm = ({setCreateEvent}) => {
     const eventList = useSelector(state => Object.values(state.events))
     const hostId = useSelector(state => state.session.user.id)
     
-    const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
-    const categoryList = Array.from(new Set(eventList.map(event => event.Group)))
+    const venueList = []
+    const venueSet = new Set()
+    eventList.forEach(event => {
+        if(!venueSet.has(event?.Venue?.name)){
+            venueList.push(event?.Venue)
+            venueSet.add(event?.Venue?.name)
+        }
+    })
+
+
+    const categoryList = useSelector(state => Object.values(state.groups))
 
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
@@ -31,11 +40,12 @@ const CreateEventForm = ({setCreateEvent}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("venue = ", venue)
+
+
         const payload = {
             hostId,
-            venue: 1,
-            category: 1,
+            venue: venue?.id,
+            category: category?.id,
             name,
             date,
             capacity,
@@ -44,7 +54,7 @@ const CreateEventForm = ({setCreateEvent}) => {
 
         let createdEvent = await dispatch(createOneEvent(payload))
         if(createdEvent) {
-            console.log('here')
+            // console.log('here')
             history.push('/events/')
             reset()
         }

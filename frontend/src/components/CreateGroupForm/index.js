@@ -28,12 +28,12 @@ const CreateGroupForm = () => {
             image,
         }
 
-        console.log('about to dispat')
+        // console.log('about to dispat')
         let createdGroup = await dispatch(createOneGroup(payload))
-        console.log('dispatched')
+        // console.log('dispatched')
         
         if (createdGroup) {
-            console.log('created')
+            // console.log('created')
             history.push(`/groups/`)
             reset()
         }

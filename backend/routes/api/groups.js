@@ -19,7 +19,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
         image,
         ownerId,
     })
-    console.log('newGroup = ', newGroup)
+    // console.log('newGroup = ', newGroup)
     res.json(newGroup);
 }))
 

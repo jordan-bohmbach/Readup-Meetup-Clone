@@ -6,9 +6,9 @@ const EventDetails = () => {
 
     let {eventId} = useParams()
     eventId = parseInt(eventId)
-    console.log(typeof eventId)
+    // console.log(typeof eventId)
     const currentEvent = useSelector(state=> state.events[eventId])
-    console.log(currentEvent)
+    // console.log(currentEvent)
 
     return (
         <>

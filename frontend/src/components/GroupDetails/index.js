@@ -6,9 +6,9 @@ const GroupDetails = () => {
 
     let { groupId } = useParams()
     groupId = parseInt(groupId)
-    console.log(typeof groupId)
+    // console.log(typeof groupId)
     const currentGroup = useSelector(state => state.groups[groupId])
-    console.log(currentGroup)
+    // console.log(currentGroup)
 
 
     return (

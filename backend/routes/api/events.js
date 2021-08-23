@@ -29,7 +29,7 @@ router.post('/', asyncHandler(async (req, res, next) => {
         capacity,
         image,
     })
-    console.log('newEvent = ', newEvent)
+    // console.log('newEvent = ', newEvent)
     res.json(newEvent)
 }))
 
