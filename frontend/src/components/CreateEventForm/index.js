@@ -18,7 +18,7 @@ const CreateEventForm = ({setCreateEvent}) => {
             venueSet.add(event?.Venue?.name)
         }
     })
-    const venueNameList = venueList.map(venue => venue.name)
+
 
     const categoryList = useSelector(state => Object.values(state.groups))
 
@@ -26,7 +26,7 @@ const CreateEventForm = ({setCreateEvent}) => {
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
-    const [venueName, setVenueName] = useState(venueList[0]?.name)
+    const [venue, setVenue] = useState(venueList[0])
     const [category, setCategory] = useState(categoryList[0])
 
     const reset = () => {
@@ -34,18 +34,18 @@ const CreateEventForm = ({setCreateEvent}) => {
         setDate(new Date())
         setCapacity(0)
         setImage('')
-        setVenueName(venueList[0].name)
+        setVenue(venueList[0])
         setCategory(categoryList[0])
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let myvenue = venueList.find(venue => venue.name === venueName)
-        let mycategory = categoryList.find(category => category.name === category)
+
+
         const payload = {
             hostId,
-            venueId: 1,
-            categoryId: 1,
+            venue: venue?.id,
+            category: category?.id,
             name,
             date,
             capacity,
@@ -105,14 +105,14 @@ const CreateEventForm = ({setCreateEvent}) => {
                     />
                 </label>
                 <select
-                    value={venueName}
-                    onChange={e => setVenueName(e.target.value)}
+                    value={venue?.id}
+                    onChange={e => setVenue(e.target.value)}
                 >
-                    {venueNameList.map(venueName => (
+                    {venueList?.map((venue, i) => (
                         <option
-                            key={venueName}
+                            key={`${venue?.id}-${venue?.name}-${i}`}
                         >
-                            {venueName}
+                            {venue?.name}
                         </option>
                     ))}
                 </select>
