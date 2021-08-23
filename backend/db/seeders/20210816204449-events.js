@@ -58,28 +58,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
-      {
-        hostId: 2,
-        venueId: 3,
-        categoryId: 4,
-        name: 'Von Mises and investing',
-        date: new Date(),
-        capacity: 15,
-        image: 'https://upload.wikimedia.org/wikipedia/en/0/0d/HumanActionFirst.jpg',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-        {
-          hostId: 2,
-          venueId: 1,
-          categoryId: 2,
-          name: 'Best science fiction short stories',
-          date: new Date(),
-          capacity: 15,
-          image: 'https://img.thriftbooks.com/api/images/m/77a7f9b40422888d6ad8ef401e00e4978b7d8d9f.jpg',
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
         {
           hostId: 2,
           venueId: 1,
@@ -149,18 +127,7 @@ module.exports = {
         {
           hostId: 2,
           venueId: 1,
-          categoryId: 1,
-          name: 'Not so fictional fiction',
-          date: new Date(),
-          capacity: 15,
-          image: 'https://images-na.ssl-images-amazon.com/images/I/41rAVWQETAL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
-          createdAt: new Date(),
-          updatedAt: new Date()
-        },
-        {
-          hostId: 2,
-          venueId: 1,
-          categoryId: 2,
+          categoryId: 3,
           name: 'Learning about fusion technology',
           date: new Date(),
           capacity: 15,
@@ -171,7 +138,7 @@ module.exports = {
         {
           hostId: 2,
           venueId: 1,
-          categoryId: 2,
+          categoryId: 1,
           name: 'Dune reading group',
           date: new Date(),
           capacity: 15,

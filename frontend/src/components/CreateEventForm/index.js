@@ -3,49 +3,53 @@ import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOneEvent } from "../../store/events"
 
-const CreateEventForm = ({setCreateEvent}) => {
+const CreateEventForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     
+    const categoryList = useSelector(state => Object.values(state.groups))
     const eventList = useSelector(state => Object.values(state.events))
     const hostId = useSelector(state => state.session.user.id)
     
-    const venueList = []
-    const venueSet = new Set()
+    const venueNameList = []
+    const venueIdList = []
+
+    const venueNameSet = new Set()
+    const venueIdSet = new Set()
     eventList.forEach(event => {
-        if(!venueSet.has(event?.Venue?.name)){
-            venueList.push(event?.Venue)
-            venueSet.add(event?.Venue?.name)
+        if(!venueNameSet.has(event?.Venue?.name)){
+            venueNameList.push(event?.Venue)
+            venueIdList.push(event?.id)
+            venueNameSet.add(event?.Venue?.name)
         }
     })
-
-
-    const categoryList = useSelector(state => Object.values(state.groups))
 
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
-    const [venue, setVenue] = useState(venueList[0])
-    const [category, setCategory] = useState(categoryList[0])
+    const [venueId, setVenueId] = useState(venueIdList[0])
+    const [categoryId, setCategoryId] = useState(1)
 
     const reset = () => {
         setName('')
         setDate(new Date())
         setCapacity(0)
         setImage('')
-        setVenue(venueList[0])
-        setCategory(categoryList[0])
+        setVenueId(venueIdList[0])
+        setCategoryId(categoryList[0])
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        let catId = categoryList.find(category => category.type === categoryId)
+
 
         const payload = {
             hostId,
-            venue: venue?.id,
-            category: category?.id,
+            venueId : 1,
+            categoryId: (catId?.id ? catId?.id : 1),
             name,
             date,
             capacity,
@@ -104,25 +108,25 @@ const CreateEventForm = ({setCreateEvent}) => {
                         onChange={e => setImage(e.target.value)}
                     />
                 </label>
-                <select
-                    value={venue?.id}
-                    onChange={e => setVenue(e.target.value)}
+                {/* <select
+                    value={venueId}
+                    onChange={e => setVenueId(e.target.value)}
                 >
-                    {venueList?.map((venue, i) => (
+                    {venueNameList?.map((venueName, i) => (
                         <option
-                            key={`${venue?.id}-${venue?.name}-${i}`}
+                            key={i}
                         >
-                            {venue?.name}
+                            {venueName}
                         </option>
                     ))}
-                </select>
+                </select> */}
                 <select
-                    value={category}
-                    onChange={e => setCategory(e.target.value)}
+                    value={categoryId}
+                    onChange={e => setCategoryId(e.target.value)}
                 >
                     {categoryList?.map((category,i) => (
                         <option
-                            key={`${category?.id}-${i}`}
+                            key={categoryId}
                         >
                             {category?.type}
                         </option>
