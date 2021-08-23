@@ -38,9 +38,9 @@ export const createOneGroup = (payload) => async dispatch => {
         image
     } = payload
 
-    console.log('ownerId is currently, ', ownerId)
-    console.log('type is currently ', type)
-    console.log('image is currently ', image)
+    // console.log('ownerId is currently, ', ownerId)
+    // console.log('type is currently ', type)
+    // console.log('image is currently ', image)
 
     // const data = { ownerId, type, image }
     const response = await csrfFetch(`/api/groups`, {
@@ -51,7 +51,7 @@ export const createOneGroup = (payload) => async dispatch => {
     let newGroup;
     if (response.ok) {
         newGroup = await response.json()
-        console.log(newGroup)
+        // console.log(newGroup)
         dispatch(addOneGroup(newGroup))
     }
     return newGroup;

@@ -10,7 +10,7 @@ const EventTile = ({event}) => {
 
 
     const handleDeleteClick = async() => {
-        console.log('dispatching deleteEvent here with event.id=', event.id)
+        // console.log('dispatching deleteEvent here with event.id=', event.id)
         await dispatch(deleteEvent(event.id))
     }
 

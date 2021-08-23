@@ -7,12 +7,12 @@ const EditEventForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     let {eventId} = useParams()
-    console.log('eventId = ', eventId)
-    console.log('type of eventId = ', typeof eventId)
+    // console.log('eventId = ', eventId)
+    // console.log('type of eventId = ', typeof eventId)
     eventId=parseInt(eventId)
     const eventList = useSelector(state => Object.values(state.events))
     const myEvent = eventList.find(event => event.id === eventId)
-    console.log('myEvent = ', myEvent)
+    // console.log('myEvent = ', myEvent)
     const hostId = useSelector(state => state.session.user.id)
     
     const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
@@ -45,7 +45,7 @@ const EditEventForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("venue = ", venue)
+        // console.log("venue = ", venue)
         const payload = {
             id: eventId,
             hostId,
@@ -59,7 +59,7 @@ const EditEventForm = () => {
 
         let updatedEvent = await dispatch(updateEvent(payload))
         if(updatedEvent) {
-            console.log('here')
+            // console.log('here')
             history.push('/events/')
             reset()
         }

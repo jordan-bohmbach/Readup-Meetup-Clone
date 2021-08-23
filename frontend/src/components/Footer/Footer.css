@@ -1,0 +1,37 @@
+.footer {
+    display: flex;
+    background-color: lightgrey;
+    border-top: 1px solid darkgray;
+    height: 100px;
+    justify-content: space-around;
+    align-content: center;
+    margin-top: 25px;
+}
+
+.github, .linkedin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.github-icon {
+    height: 35px;
+    width: 65px;
+    align-self: center;
+    padding-bottom: 5px;
+}
+
+.linkedin-icon {
+    align-self: center;
+    height: 30px;
+    width: 30px;
+    padding-bottom: 5px;
+}
+
+.github-link, .linkedin-link {
+    text-decoration: none;
+    color: #008294;
+    font-weight: bold;
+    font-size: 1.2em;
+}

@@ -42,8 +42,8 @@ export const createOneEvent = (payload) => async dispatch => {
         hostId
     } = payload
 
-    console.log('hostId is currently ', hostId)
-    console.log('hostId type is ', typeof hostId)
+    // console.log('hostId is currently ', hostId)
+    // console.log('hostId type is ', typeof hostId)
 
     // const data = {hostId, venueId: venue, categoryId: category, name, date, capacity, image}
     const response = await csrfFetch(`/api/events`, {
@@ -54,7 +54,7 @@ export const createOneEvent = (payload) => async dispatch => {
     let newEvent;
     if(response.ok) {
         newEvent = await response.json();
-        console.log(newEvent)
+        // console.log(newEvent)
         dispatch(addOneEvent(newEvent))
     }
     return newEvent;
