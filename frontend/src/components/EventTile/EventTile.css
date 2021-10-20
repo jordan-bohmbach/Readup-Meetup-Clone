@@ -8,8 +8,7 @@
     border-radius: 15px;
     padding-bottom: 2%;
     margin-bottom: 3%;
-    border-width: 5px;
-    border-style: outset;
+    border: 5px outset darkgray;
     border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
