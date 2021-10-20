@@ -10,6 +10,7 @@ const EventListPage = ({eventList}) => {
     return(
         <div className='event-page'>
             <h1>Events</h1>
+            {(currentUser && currentUser.id) ? <Link to={'/events/new'} className='create-event-button'>Create New Event</Link> : ''}
             <div className='event-page-upper-section'>
                 <div className='event-list'>
                     {eventList.map(event =>
@@ -20,7 +21,6 @@ const EventListPage = ({eventList}) => {
                     )}
                 </div>
             </div>
-            {(currentUser && currentUser.id) ? <Link to={'/events/new'} className='create-event-button'>Create New Event</Link> : ''}
         </div>
     )
 }
