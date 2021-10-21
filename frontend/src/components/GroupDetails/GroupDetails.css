@@ -1,8 +1,8 @@
 .group-details {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 2%;
 }
 
 .group-details > img {
@@ -20,4 +20,8 @@
     border: none;
     background: none;
     cursor: pointer;
+}
+
+.group-events > h1 {
+    text-align: center;
 }

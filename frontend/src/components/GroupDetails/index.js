@@ -19,13 +19,13 @@ const GroupDetails = () => {
         <>
             <div className="group-details">
                 <Link to='/groups/' className='back-to-groups'>Back to groups Page</Link>
-                <p className="group-info">{currentGroup?.name}</p>
+                <h1>{currentGroup?.type} Group</h1>
                 <img src={`${currentGroup?.image}`} alt={currentGroup?.name}></img>
-                <p>Type: {currentGroup?.type}</p>
 
             </div>
 
             <div className='group-events'>
+                {eventList.filter(event=>event.categoryId===groupId).length ? <h1>{currentGroup?.type} Events</h1> : <h3 style={{textAlign:'center'}}>No Events in {currentGroup?.type} at this time</h3>}
                 {eventList.map(currentEvent => (
                     currentEvent.categoryId === groupId ? <EventTile event={currentEvent}></EventTile> : ''
                 ))}
