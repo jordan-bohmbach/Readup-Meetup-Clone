@@ -52,11 +52,11 @@ function Navigation({ isLoaded }) {
     useEffect(() => {
         setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
         setFilteredGroups(groupList.filter(group=>group.type.toLowerCase().includes(searchWord.toLowerCase())))
-        console.log('searchWord is now ', searchWord)
-        console.log('eventList is now ', eventList)
-        console.log('filteredEvents is now ', filteredEvents)
-        console.log('groupList is now ', groupList)
-        console.log('filteredGroups is now ', filteredGroups)
+        // console.log('searchWord is now ', searchWord)
+        // console.log('eventList is now ', eventList)
+        // console.log('filteredEvents is now ', filteredEvents)
+        // console.log('groupList is now ', groupList)
+        // console.log('filteredGroups is now ', filteredGroups)
     }, [searchWord])
 
     return (

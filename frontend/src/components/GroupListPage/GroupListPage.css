@@ -61,7 +61,10 @@
     color: #008294;
     font-weight: bold;
     font-size: 1.2em;
-    border: none;
+    border: 1px solid #008294;
+    border-radius: 40px;
+    padding: 15px;
     background: none;
     cursor: pointer;
+    margin-bottom: 2%;
 }

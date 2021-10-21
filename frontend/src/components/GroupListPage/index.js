@@ -10,6 +10,7 @@ const GroupListPage = ({ groupList }) => {
     return (
         <div className='group-page'>
             <h1>Groups</h1>
+            {(currentUser && currentUser.id) ? <Link to={'/groups/new'} className='create-group-button'>Create New Group</Link> : ''}
             <div className='group-page-upper-section'>
                 <div className='group-list'>
                     {groupList.map(group =>
@@ -21,7 +22,6 @@ const GroupListPage = ({ groupList }) => {
                 </div>
 
             </div>
-            {(currentUser && currentUser.id) ? <Link to={'/groups/new'} className='create-group-button'>Create New Group</Link> : ''}
         </div>
     )
 }
