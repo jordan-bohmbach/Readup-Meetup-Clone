@@ -49,9 +49,12 @@ function Navigation({ isLoaded }) {
         setSearchingClickOut(false)
     }
 
+
     useEffect(() => {
-        setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
-        setFilteredGroups(groupList.filter(group=>group.type.toLowerCase().includes(searchWord.toLowerCase())))
+
+            setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
+            setFilteredGroups(groupList.filter(group=>group.type.toLowerCase().includes(searchWord.toLowerCase())))
+
         // console.log('searchWord is now ', searchWord)
         // console.log('eventList is now ', eventList)
         // console.log('filteredEvents is now ', filteredEvents)
