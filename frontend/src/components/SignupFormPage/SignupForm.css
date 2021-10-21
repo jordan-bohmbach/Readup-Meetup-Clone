@@ -10,7 +10,8 @@
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
     border-radius: 25px;
 
-    margin-top: 10%
+    margin-top: 5%;
+    margin-bottom: 10%;
 }
 
 .signup-form > label {
