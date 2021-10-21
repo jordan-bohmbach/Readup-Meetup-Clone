@@ -6,10 +6,8 @@
     border-radius: 15px;
     padding-bottom: 2%;
     margin-bottom: 3%;
-    border-width: 5px;
-    border-style: outset;
     height: 250px;
-    border-color: -internal-light-dark(rgb(0, 0, 0), rgb(0, 0, 0));
+    border: 3px solid darkgray;
 }
 
 .group-details-link {

@@ -3,11 +3,36 @@ import './SplashPage.css'
 import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
 import Footer from '../Footer'
+import { useState, useEffect } from 'react'
 
 const SplashPage = ({eventList, groupList}) => {
 
+    const [searchWord, setSearchWord] = useState('')
+    const [searchingClickOut, setSearchingClickOut] = useState(false)
+    const [filteredEvents, setFilteredEvents] = useState([])
+
     const buttonList = ['Boost your career', 'Find your zen', 'Get moving', 'Share language + culture', 'Read with friends', 'Write together', 'Hone your craft']
     const happeningList = ['Starting soon', 'Today', 'Tomorrow', 'This week', 'Online', 'In person', 'Trending near you']
+
+    const handleTypeing = (e) => {
+        setSearchWord(e.target.value)
+    }
+
+    const handleBlur = () => {
+        console.log('bluring here')
+        setTimeout(() => setSearchingClickOut(true), 200)
+    }
+
+    const handleClick = () => {
+        setSearchingClickOut(false)
+    }
+
+    useEffect(() => {
+        setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
+        // console.log('searchWord is now ', searchWord)
+        // console.log('eventList is now ', eventList)
+        // console.log('filteredEvents is now ', filteredEvents)
+    }, [searchWord])
 
     return(
         <div className='splash-page'>
@@ -42,13 +67,30 @@ const SplashPage = ({eventList, groupList}) => {
             <div className='search-section'>
                 <div className='left-search'>
                     <h2>What do you want to do?</h2>
-                        <div className='left-search-inputs'>
-                            <input defaultValue={`Search for "Science Fiction"`}></input>
-                            <input defaultValue={`Location`}></input>                            
+                    <div className='left-search-and-button-container'>
+                        <div className='left-search-container'>
+                            <input
+                                className='left-search-input'
+                                type='text'
+                                name='search'
+                                value={searchWord}
+                                placeholder='Search for Events'
+                                onChange={handleTypeing}
+                                onBlur={handleBlur}
+                                onClick={handleClick}>
+
+                            </input>
+                            <div className='outer-search-results-container'>
+                                {(filteredEvents && searchWord) ? <ul className={searchingClickOut ? 'invisible-search' : 'search-results-container'}>
+                                    {filteredEvents.length ? <li className='search-spacer'>Matching Events</li> : ''}
+                                    {filteredEvents?.map(event => (
+                                        <li key={event.id}><Link to={`/events/${event.id}`} >{event.name}</Link></li>
+                                    ))}
+                                </ul> : ''}
+                            </div>
                         </div>
-                    <Link className='left-search-link' to='/events'>
-                        <span className='left-search-button'>Search</span>
-                    </Link>
+                        <button className='left-navigation-search-button'>Browse Events</button>
+                    </div>
                 </div>
                 <div className='right-search'>
                     <h2>See what's happening</h2>
