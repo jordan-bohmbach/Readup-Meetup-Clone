@@ -27,10 +27,12 @@ h2 {
     height: 100%;
     padding-left: 4%;
     padding-top: 3%;
+    z-index: -1;
 }
 
 .top-section-text {
     width: 50%;
+    z-index: -1;
 }
 
 .search-button {
