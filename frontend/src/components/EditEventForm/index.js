@@ -16,7 +16,7 @@ const EditEventForm = () => {
     const hostId = useSelector(state => state.session.user.id)
     
     // const venueList = Array.from(new Set(eventList.map(event => event.Venue)))
-    const categoryList = Array.from(new Set(eventList.map(event => event.Group)))
+    const categoryList = useSelector(state=>Object.values(state.groups))
 
     const [name, setName] = useState(myEvent?.name)
     const [date, setDate] = useState(myEvent?.date)
@@ -68,7 +68,7 @@ const EditEventForm = () => {
     }
 
     return(
-        <>
+        <div className='event-form-container'>
             <form
                 className='event-form'
                 onSubmit={handleSubmit}
@@ -134,14 +134,16 @@ const EditEventForm = () => {
                         </option>
                     ))}
                 </select>
-                <button
-                    type="submit"
-                >
-                    Save Changes
-                </button>
+                <div className='event-form-buttons-section'>
+                    <button
+                        type="submit"
+                    >
+                        Save Changes
+                    </button>
+                    <Link to='/events' className='cancel-event-button'>Cancel</Link>
+                </div>
             </form>
-            <Link to='/events/' className='cancel-event-button'>Cancel</Link>
-        </>
+        </div>
     )
 }
 

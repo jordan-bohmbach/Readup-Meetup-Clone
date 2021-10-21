@@ -2,33 +2,17 @@ import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOneEvent } from "../../store/events"
+import './EventForm.css'
 
 const CreateEventForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    
     const categoryList = useSelector(state => Object.values(state.groups))
-    // const eventList = useSelector(state => Object.values(state.events))
     const hostId = useSelector(state => state.session.user.id)
-    
-    // const venueNameList = []
-    // const venueIdList = []
-
-    // const venueNameSet = new Set()
-    // const venueIdSet = new Set()
-    // eventList.forEach(event => {
-    //     if(!venueNameSet.has(event?.Venue?.name)){
-    //         venueNameList.push(event?.Venue)
-    //         venueIdList.push(event?.id)
-    //         venueNameSet.add(event?.Venue?.name)
-    //     }
-    // })
-
     const [name, setName] = useState('')
     const [date, setDate] = useState(new Date())
     const [capacity, setCapacity] = useState(0)
     const [image, setImage] = useState('')
-    // const [venueId, setVenueId] = useState(venueIdList[0])
     const [categoryId, setCategoryId] = useState(1)
 
     const reset = () => {
@@ -66,7 +50,7 @@ const CreateEventForm = () => {
     }
 
     return(
-        <>
+        <div className='event-form-container'>
             <form
                 className='event-form'
                 onSubmit={handleSubmit}
@@ -132,14 +116,16 @@ const CreateEventForm = () => {
                         </option>
                     ))}
                 </select>
-                <button
-                    type="submit"
-                >
-                    Create Event
-                </button>
+                <div className='event-form-buttons-section'>
+                    <button
+                        type="submit"
+                    >
+                        Create Event
+                    </button>
+                    <Link to='/events' className='cancel-event-button'>Cancel</Link>
+                </div>
             </form>
-            <Link to='/events/' className='cancel-event-button'>Cancel</Link>
-        </>
+        </div>
     )
 }
 

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const EventTile = ({event}) => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.user)
-    const eventDay = event.date.slice(0, 9)
+    const eventDay = event.date.slice(0, 10)
 
 
     const handleDeleteClick = async() => {

@@ -1,0 +1,43 @@
+.event-form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    border: 1px solid darkgray;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.event-form > label,
+.event-form > select,
+.event-form > a {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-form-buttons-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-form-buttons-section > button{
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1;
+    padding: 1rem;
+    background-color: rgba(246,88,88,1);
+    border-color: rgba(246,88,88,1);
+    cursor: pointer;
+    color: #fff;
+    fill: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5%;
+    text-align: center;
+    border: 3px solid rgba(246, 88, 88, 1);
+}
