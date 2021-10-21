@@ -13,7 +13,7 @@ const EventDetails = () => {
         <>
             <div className="event-details">
                 <Link to='/events/' className='back-to-events'>Back to Events Page</Link>
-                <p className="event-info">{currentEvent?.name}</p>
+                <h2 className="event-info">{currentEvent?.name}</h2>
                 <img src={`${currentEvent?.image}`} alt={currentEvent?.name}></img>       
                 <p>Venue: {currentEvent?.Venue.name}</p >
                 <p>Date: {currentEvent?.date.slice(0,10)}</p >

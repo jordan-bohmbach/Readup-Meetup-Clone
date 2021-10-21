@@ -47,7 +47,7 @@ const EditGroupForm = () => {
     }
 
     return (
-        <>
+        <div className='group-form-container'>
             <form
                 className='group-form'
                 onSubmit={handleSubmit}
@@ -72,14 +72,16 @@ const EditGroupForm = () => {
                     />
                 </label>
 
-                <button
-                    type="submit"
-                >
-                    Save Changes
-                </button>
+                <div className='group-form-button-container'>
+                    <button
+                        type="submit"
+                    >
+                        Save Changes
+                    </button>
+                    <Link to='/groups/' className='cancel-group-button'>Cancel</Link>
+                </div>
             </form>
-            <Link to='/groups/' className='cancel-group-button'>Cancel</Link>
-        </>
+        </div>
     )
 }
 

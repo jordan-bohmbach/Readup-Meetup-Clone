@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { createOneGroup } from "../../store/group"
 import { useSelector } from "react-redux"
+import './CreateGroupForm.css'
 
 const CreateGroupForm = () => {
     const ownerId = useSelector(state => state.session.user.id)
@@ -41,7 +42,7 @@ const CreateGroupForm = () => {
     }
 
     return (
-        <>
+        <div className='group-form-container'>
             <form
                 className='group-form'
                 onSubmit={handleSubmit}
@@ -65,14 +66,16 @@ const CreateGroupForm = () => {
                         onChange={e => setImage(e.target.value)}
                     />
                 </label>
-                <button
-                    type="submit"
-                >
-                    Create Group
-                </button>
+                <div className='group-form-button-container'>
+                    <button
+                        type="submit"
+                    >
+                        Create Group
+                    </button>
+                    <Link to='/groups/' className='cancel-group-button' onClick={cancelCreation}>Cancel</Link>
+                </div>
             </form>
-            <Link to='/groups/' className='cancel-group-button' onClick={cancelCreation}>Cancel</Link>
-        </>
+        </div>
     )
 }
 
