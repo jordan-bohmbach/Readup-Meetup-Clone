@@ -56,18 +56,14 @@
     font-size: 14px;
     line-height: 1;
     padding: 1rem;
-    padding-left: 33%;
-    padding-right: 33%;
-    background-color: rgba(246,88,88,1);
-    border-color: rgba(246,88,88,1);
     cursor: pointer;
-    color: #fff;
     fill: #fff;
     text-decoration: none;
     display: inline-block;
     margin-top: 5%;
-    min-width: 200px;
     text-align: center;
+    border: 3px solid rgba(246, 88, 88, 1);
+    color: rgba(246, 88, 88, 1)
 }
 
 .create-event-button {
