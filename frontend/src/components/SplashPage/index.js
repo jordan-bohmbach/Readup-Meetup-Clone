@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './SplashPage.css'
 import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
-import Footer from '../Footer'
+// import Footer from '../Footer'
 import { useState, useEffect } from 'react'
 
 const SplashPage = ({eventList, groupList}) => {
@@ -32,7 +32,7 @@ const SplashPage = ({eventList, groupList}) => {
         // console.log('searchWord is now ', searchWord)
         // console.log('eventList is now ', eventList)
         // console.log('filteredEvents is now ', filteredEvents)
-    }, [searchWord])
+    }, [searchWord, eventList])
 
     return(
         <div className='splash-page'>
