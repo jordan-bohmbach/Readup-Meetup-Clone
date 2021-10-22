@@ -112,6 +112,7 @@ h2 {
     width: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border: 2px solid black;
 }
 
 .left-navigation-search-button {
@@ -120,6 +121,8 @@ h2 {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     width: 90px;
+    cursor: pointer;
+    border: 2px solid black;
 }
 
 .right-search-buttons {
