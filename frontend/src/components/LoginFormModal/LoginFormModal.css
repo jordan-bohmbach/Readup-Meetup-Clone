@@ -1,7 +1,5 @@
 #modal-content {
-    border-width: 5px;
-    border-style: outset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border: 3px solid darkgray;
     border-radius: 25px;
     height: 20%;
     padding-bottom: 25px;

@@ -4,9 +4,10 @@ import EventTile from '../EventTile'
 import GroupTile from '../GroupTile'
 // import Footer from '../Footer'
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 
 const SplashPage = ({eventList, groupList}) => {
-
+    const history = useHistory()
     const [searchWord, setSearchWord] = useState('')
     const [searchingClickOut, setSearchingClickOut] = useState(false)
     const [filteredEvents, setFilteredEvents] = useState([])
@@ -25,6 +26,10 @@ const SplashPage = ({eventList, groupList}) => {
 
     const handleClick = () => {
         setSearchingClickOut(false)
+    }
+
+    const handleBrowse = () => {
+        history.push('/events')
     }
 
     useEffect(() => {
@@ -89,7 +94,7 @@ const SplashPage = ({eventList, groupList}) => {
                                 </ul> : ''}
                             </div>
                         </div>
-                        <button className='left-navigation-search-button'>Browse Events</button>
+                        <button className='left-navigation-search-button' onClick={handleBrowse}>Browse Events</button>
                     </div>
                 </div>
                 <div className='right-search'>
