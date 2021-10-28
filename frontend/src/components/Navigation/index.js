@@ -51,16 +51,14 @@ function Navigation({ isLoaded }) {
 
 
     useEffect(() => {
+        if (eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())).length === filteredEvents.length && 
+            groupList.filter(group => group.type.toLowerCase().includes(searchWord.toLowerCase())).length === filteredGroups.length
+        ) return
 
-            setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
-            setFilteredGroups(groupList.filter(group=>group.type.toLowerCase().includes(searchWord.toLowerCase())))
+        setFilteredEvents(eventList.filter(event => event.name.toLowerCase().includes(searchWord.toLowerCase())))
+        setFilteredGroups(groupList.filter(group=>group.type.toLowerCase().includes(searchWord.toLowerCase())))
 
-        // console.log('searchWord is now ', searchWord)
-        // console.log('eventList is now ', eventList)
-        // console.log('filteredEvents is now ', filteredEvents)
-        // console.log('groupList is now ', groupList)
-        // console.log('filteredGroups is now ', filteredGroups)
-    }, [searchWord])
+    }, [searchWord, eventList, groupList, filteredGroups, filteredEvents])
 
     return (
         <div className='outermost-navbar-container'>
